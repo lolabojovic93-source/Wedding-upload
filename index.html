@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
 
   <meta
@@ -8,20 +10,34 @@
     content="width=device-width, initial-scale=1"
   >
 
-  <title>Lola & Santi</title>
+  <title>
+    Lola & Santi
+  </title>
+
 
   <style>
+
     * {
       box-sizing: border-box;
     }
 
-    body {
-      margin: 0;
-      min-height: 100vh;
-      padding: 45px 20px 60px;
 
-      background: #f7f4ee;
-      color: #292821;
+    body {
+
+      margin: 0;
+
+      min-height: 100vh;
+
+      padding:
+        45px
+        20px
+        60px;
+
+      background:
+        #f7f4ee;
+
+      color:
+        #292821;
 
       font-family:
         -apple-system,
@@ -30,183 +46,359 @@
         Arial,
         sans-serif;
 
-      text-align: center;
+      text-align:
+        center;
     }
+
 
     .wrap {
+
       width: 100%;
-      max-width: 560px;
-      margin: 0 auto;
+
+      max-width:
+        560px;
+
+      margin:
+        0 auto;
     }
+
 
     h1 {
-      margin: 5px 0 8px;
 
-      font-family: Georgia, serif;
-      font-size: 42px;
-      font-weight: normal;
+      margin:
+        5px 0 8px;
+
+      font-family:
+        Georgia,
+        serif;
+
+      font-size:
+        42px;
+
+      font-weight:
+        normal;
     }
+
 
     .date {
-      margin-bottom: 44px;
-      font-size: 12px;
-      letter-spacing: 3px;
+
+      margin-bottom:
+        44px;
+
+      font-size:
+        12px;
+
+      letter-spacing:
+        3px;
     }
+
 
     .intro {
-      margin-bottom: 30px;
-      font-size: 18px;
-      line-height: 1.5;
+
+      margin-bottom:
+        30px;
+
+      font-size:
+        18px;
+
+      line-height:
+        1.5;
     }
+
 
     input[type="text"] {
-      width: 100%;
-      padding: 17px;
 
-      border: 1px solid #bbb;
-      border-radius: 12px;
+      width:
+        100%;
 
-      background: white;
-      font-size: 16px;
+      padding:
+        17px;
+
+      border:
+        1px solid #bbb;
+
+      border-radius:
+        12px;
+
+      background:
+        white;
+
+      font-size:
+        16px;
     }
+
 
     input[type="file"] {
       display: none;
     }
 
+
     .choose {
-      display: block;
-      width: 100%;
-      margin-top: 14px;
-      padding: 19px;
 
-      border: 1px solid #292821;
-      border-radius: 12px;
+      display:
+        block;
 
-      background: white;
+      width:
+        100%;
 
-      cursor: pointer;
-      font-size: 17px;
+      margin-top:
+        14px;
+
+      padding:
+        19px;
+
+      border:
+        1px solid #292821;
+
+      border-radius:
+        12px;
+
+      background:
+        white;
+
+      cursor:
+        pointer;
+
+      font-size:
+        17px;
     }
+
 
     .original {
       margin-top: 10px;
-      background: transparent;
     }
+
 
     .hint {
-      margin: 9px 8px 20px;
 
-      font-size: 12px;
-      line-height: 1.45;
-      opacity: .62;
+      margin:
+        9px 8px 20px;
+
+      font-size:
+        12px;
+
+      line-height:
+        1.45;
+
+      opacity:
+        .62;
     }
+
 
     .summary {
-      margin: 18px 0;
 
-      font-size: 14px;
-      opacity: .7;
+      margin:
+        18px 0;
+
+      font-size:
+        14px;
+
+      opacity:
+        .7;
     }
+
 
     .file-card {
-      margin: 10px 0;
-      padding: 14px;
 
-      border-radius: 12px;
-      background: rgba(255,255,255,.75);
+      margin:
+        10px 0;
 
-      text-align: left;
+      padding:
+        14px;
+
+      border-radius:
+        12px;
+
+      background:
+        rgba(
+          255,
+          255,
+          255,
+          .75
+        );
+
+      text-align:
+        left;
     }
+
 
     .file-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
+
+      display:
+        flex;
+
+      justify-content:
+        space-between;
+
+      gap:
+        12px;
     }
+
 
     .file-name {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      font-size: 14px;
+
+      overflow:
+        hidden;
+
+      text-overflow:
+        ellipsis;
+
+      white-space:
+        nowrap;
+
+      font-size:
+        14px;
     }
+
 
     .file-size {
-      flex-shrink: 0;
-      font-size: 12px;
-      opacity: .6;
+
+      flex-shrink:
+        0;
+
+      font-size:
+        12px;
+
+      opacity:
+        .6;
     }
+
 
     .status {
-      display: flex;
-      justify-content: space-between;
 
-      margin-top: 8px;
+      display:
+        flex;
 
-      font-size: 12px;
-      opacity: .7;
+      justify-content:
+        space-between;
+
+      margin-top:
+        8px;
+
+      font-size:
+        12px;
+
+      opacity:
+        .7;
     }
+
 
     .progress {
-      height: 5px;
-      margin-top: 8px;
 
-      overflow: hidden;
-      border-radius: 999px;
+      height:
+        5px;
 
-      background: rgba(41,40,33,.12);
+      margin-top:
+        8px;
+
+      overflow:
+        hidden;
+
+      border-radius:
+        999px;
+
+      background:
+        rgba(
+          41,
+          40,
+          33,
+          .12
+        );
     }
+
 
     .progress-bar {
-      width: 0%;
-      height: 100%;
 
-      background: #292821;
+      width:
+        0%;
 
-      transition: width .15s ease;
+      height:
+        100%;
+
+      background:
+        #292821;
+
+      transition:
+        width
+        .15s
+        ease;
     }
+
 
     button {
-      width: 100%;
-      padding: 19px;
 
-      border: 0;
-      border-radius: 12px;
+      width:
+        100%;
 
-      background: #292821;
-      color: white;
+      padding:
+        19px;
 
-      cursor: pointer;
-      font-size: 17px;
+      border:
+        0;
+
+      border-radius:
+        12px;
+
+      background:
+        #292821;
+
+      color:
+        white;
+
+      cursor:
+        pointer;
+
+      font-size:
+        17px;
     }
+
 
     button:disabled {
       opacity: .45;
     }
 
+
     #overall {
-      margin-top: 22px;
-      line-height: 1.5;
+
+      margin-top:
+        22px;
+
+      line-height:
+        1.5;
     }
+
 
     .secondary {
-      margin-top: 16px;
 
-      border: 1px solid #292821;
+      margin-top:
+        16px;
 
-      background: transparent;
-      color: #292821;
+      border:
+        1px solid #292821;
+
+      background:
+        transparent;
+
+      color:
+        #292821;
     }
+
   </style>
+
 </head>
+
 
 
 <body>
 
+
 <main class="wrap">
 
-  <h1>Lola & Santi</h1>
+
+  <h1>
+    Lola & Santi
+  </h1>
+
 
   <div class="date">
     12 · 09 · 2026
@@ -214,9 +406,15 @@
 
 
   <div class="intro">
-    You saw moments we didn't.<br>
+
+    You saw moments we didn't.
+
+    <br>
+
     Share them with us. ♡
+
   </div>
+
 
 
   <input
@@ -224,6 +422,7 @@
     type="text"
     placeholder="Your name (optional)"
   >
+
 
 
   <label class="choose">
@@ -241,6 +440,7 @@
   </label>
 
 
+
   <label class="choose original">
 
     ⬆ Upload original file
@@ -255,11 +455,21 @@
   </label>
 
 
+
   <div class="hint">
+
     Want to send the untouched original?
-    On iPhone, choose <strong>Upload original file</strong>
+
+    On iPhone, choose
+
+    <strong>
+      Upload original file
+    </strong>
+
     and select it from the Files app.
+
   </div>
+
 
 
   <div
@@ -268,7 +478,10 @@
   </div>
 
 
-  <div id="fileList"></div>
+
+  <div id="fileList">
+  </div>
+
 
 
   <button
@@ -276,87 +489,160 @@
     type="button"
     onclick="startUpload()"
   >
+
     Share selected files
+
   </button>
 
 
-  <div id="overall"></div>
+
+  <div id="overall">
+  </div>
+
 
 </main>
 
 
+
 <script>
 
+
 const BACKEND_URL =
+
   'https://script.google.com/macros/s/AKfycbx2vdi2nqGoyrrNToJhu0JrElylkWVM1knWDGrYA7LbFjWodyJDFM3S17uxhsq5Nv8ffg/exec';
+
 
 
 const CHUNK_SIZE =
   8 * 1024 * 1024;
 
 
+
 const MAX_RETRIES =
-  4;
-
-
-let selectedFiles = [];
-
-let fileStates = [];
-
-let uploading = false;
+  5;
 
 
 
-function filesSelected(fileList) {
+let selectedFiles =
+  [];
+
+
+
+let fileStates =
+  [];
+
+
+
+let uploading =
+  false;
+
+
+
+
+function filesSelected(
+  fileList
+) {
+
 
   selectedFiles =
-    Array.from(fileList);
+    Array.from(
+      fileList
+    );
 
 
   fileStates =
-    selectedFiles.map(function() {
+    selectedFiles.map(
+      function() {
 
-      return {
-        percent: 0,
-        status: 'Ready',
-        completed: false,
-        failed: false
-      };
+        return {
 
-    });
+          percent:
+            0,
+
+          status:
+            'Ready',
+
+          completed:
+            false,
+
+          failed:
+            false,
+
+          sessionUrl:
+            null,
+
+          fileId:
+            null
+        };
+
+      }
+    );
 
 
   const totalBytes =
+
     selectedFiles.reduce(
-      (sum, file) => sum + file.size,
+
+      (sum, file) =>
+        sum +
+        file.size,
+
       0
     );
 
 
-  document.getElementById('summary').innerText =
-    selectedFiles.length
-      ? selectedFiles.length +
-        (selectedFiles.length === 1
-          ? ' file'
-          : ' files') +
-        ' · ' +
-        formatBytes(totalBytes)
-      : '';
+  document
+    .getElementById(
+      'summary'
+    )
+    .innerText =
+
+      selectedFiles.length
+
+        ? selectedFiles.length +
+
+          (
+            selectedFiles.length === 1
+              ? ' file'
+              : ' files'
+          )
+
+          +
+
+          ' · '
+
+          +
+
+          formatBytes(
+            totalBytes
+          )
+
+        : '';
 
 
   renderFileList();
 
 
-  document.getElementById('overall').innerHTML =
-    '';
+  document
+    .getElementById(
+      'overall'
+    )
+    .innerHTML =
+      '';
 }
+
 
 
 
 function renderFileList() {
 
+
   const container =
-    document.getElementById('fileList');
+
+    document
+      .getElementById(
+        'fileList'
+      );
 
 
   container.innerHTML =
@@ -364,10 +650,19 @@ function renderFileList() {
 
 
   selectedFiles.forEach(
-    function(file, index) {
+
+    function(
+      file,
+      index
+    ) {
+
 
       const card =
-        document.createElement('div');
+
+        document
+          .createElement(
+            'div'
+          );
 
 
       card.className =
@@ -416,23 +711,35 @@ function renderFileList() {
       container.appendChild(
         card
       );
+
     }
   );
 }
 
 
 
+
 async function startUpload() {
+
 
   if (uploading) {
     return;
   }
 
 
-  if (!selectedFiles.length) {
+  if (
+    !selectedFiles.length
+  ) {
 
-    document.getElementById('overall').innerText =
-      'Choose at least one file first.';
+
+    document
+      .getElementById(
+        'overall'
+      )
+      .innerText =
+
+        'Choose at least one file first.';
+
 
     return;
   }
@@ -442,40 +749,63 @@ async function startUpload() {
     true;
 
 
-  document.getElementById('uploadButton').disabled =
-    true;
+  document
+    .getElementById(
+      'uploadButton'
+    )
+    .disabled =
+      true;
 
 
   const guestName =
-    document.getElementById('guestName').value;
+
+    document
+      .getElementById(
+        'guestName'
+      )
+      .value;
 
 
   let completed =
     0;
 
 
+
   for (
+
     let index = 0;
-    index < selectedFiles.length;
+
+    index <
+      selectedFiles.length;
+
     index++
+
   ) {
+
 
     try {
 
+
       await uploadOneFile(
+
         selectedFiles[index],
+
         index,
+
         guestName
+
       );
 
 
       completed++;
 
 
-    } catch (error) {
+    } catch (
+      error
+    ) {
+
 
       console.error(
-        'Upload failed:',
         error
       );
 
@@ -485,98 +815,172 @@ async function startUpload() {
 
 
       updateProgress(
+
         index,
+
         fileStates[index].percent,
+
         'Upload failed'
+
       );
     }
 
 
-    document.getElementById('overall').innerText =
-      completed +
-      ' of ' +
-      selectedFiles.length +
-      ' uploaded';
+    document
+      .getElementById(
+        'overall'
+      )
+      .innerText =
+
+        completed +
+        ' of ' +
+        selectedFiles.length +
+        ' uploaded';
+
   }
+
 
 
   uploading =
     false;
 
 
-  document.getElementById('uploadButton').disabled =
-    false;
+  document
+    .getElementById(
+      'uploadButton'
+    )
+    .disabled =
+      false;
+
 
 
   const failed =
+
     fileStates.filter(
-      state => state.failed
+
+      state =>
+        state.failed
+
     ).length;
+
 
 
   if (!failed) {
 
-    document.getElementById('overall').innerHTML = `
 
-      ♡ Thank you.<br>
-      Everything is safely with us.
+    document
+      .getElementById(
+        'overall'
+      )
+      .innerHTML = `
 
-      <button
-        class="secondary"
-        onclick="resetUploader()">
-        Upload more
-      </button>
-    `;
+        ♡ Thank you.<br>
+        Everything is safely with us.
+
+        <button
+          class="secondary"
+          onclick="resetUploader()">
+          Upload more
+        </button>
+
+      `;
+
 
   } else {
 
-    document.getElementById('overall').innerHTML = `
 
-      ${completed}
-      uploaded successfully.<br>
+    document
+      .getElementById(
+        'overall'
+      )
+      .innerHTML = `
 
-      ${failed}
-      ${failed === 1
-        ? 'file needs another try.'
-        : 'files need another try.'}
-    `;
+        ${completed}
+        uploaded successfully.<br>
+
+        ${failed}
+        ${
+          failed === 1
+            ? 'file needs another try.'
+            : 'files need another try.'
+        }
+
+      `;
   }
 }
 
 
 
+
 async function uploadOneFile(
+
   file,
+
   index,
+
   guestName
+
 ) {
 
+
   updateProgress(
+
     index,
+
     0,
+
     'Preparing…'
+
   );
 
 
+
   const session =
+
     await createUploadSession(
+
       file,
+
       guestName
+
     );
+
 
 
   if (
+
     !session ||
+
     !session.success ||
-    !session.sessionUrl
+
+    !session.sessionUrl ||
+
+    !session.fileId
+
   ) {
 
+
     throw new Error(
-      session && session.error
+
+      session &&
+      session.error
+
         ? session.error
+
         : 'Could not prepare upload.'
+
     );
   }
+
+
+
+  fileStates[index].sessionUrl =
+    session.sessionUrl;
+
+
+  fileStates[index].fileId =
+    session.fileId;
+
 
 
   let offset =
@@ -587,58 +991,77 @@ async function uploadOneFile(
     0;
 
 
+
   while (
-    offset < file.size
+    offset <
+    file.size
   ) {
 
+
     const end =
+
       Math.min(
-        offset + CHUNK_SIZE,
+
+        offset +
+        CHUNK_SIZE,
+
         file.size
+
       );
+
 
 
     const chunk =
+
       file.slice(
+
         offset,
+
         end
+
       );
+
 
 
     try {
 
+
       const result =
+
         await uploadChunk(
+
           session.sessionUrl,
+
           chunk,
+
           offset,
+
           end,
+
           file.size,
+
           index
+
         );
 
 
+
+      /*
+       * Google explicitly confirmed
+       * completion.
+       */
+
       if (
+
         result.status === 200 ||
+
         result.status === 201
+
       ) {
 
-        fileStates[index].completed =
-          true;
 
-
-        fileStates[index].failed =
-          false;
-
-
-        fileStates[index].percent =
-          100;
-
-
-        updateProgress(
-          index,
-          100,
-          '✓ Uploaded'
+        markComplete(
+          index
         );
 
 
@@ -646,39 +1069,64 @@ async function uploadOneFile(
       }
 
 
+
+      /*
+       * Normal intermediate chunk.
+       */
+
       if (
         result.status === 308
       ) {
 
+
         const received =
+
           getReceivedOffset(
+
             result.rangeHeader
+
           );
 
 
+
         offset =
+
           received !== null
+
             ? received
+
             : end;
+
 
 
         retries =
           0;
 
 
+
         updateProgress(
+
           index,
+
           Math.min(
+
             99,
+
             Math.floor(
+
               (
                 offset /
                 file.size
-              ) *
+              )
+              *
               100
+
             )
+
           ),
+
           'Uploading…'
+
         );
 
 
@@ -686,52 +1134,31 @@ async function uploadOneFile(
       }
 
 
-      throw new Error(
-        'Unexpected Google response: ' +
-        result.status
-      );
 
-
-    } catch (error) {
-
-      updateProgress(
-        index,
-        fileStates[index].percent,
-        'Checking upload…'
-      );
-
-
-      const status =
-        await queryUploadStatus(
-          session.sessionUrl,
-          file.size
-        );
-
+      /*
+       * Safari sometimes reports an
+       * unexpected final response.
+       *
+       * Before treating that as failure,
+       * ask OUR backend whether the
+       * expected Drive file exists.
+       */
 
       if (
-        status &&
-        (
-          status.status === 200 ||
-          status.status === 201
+
+        await verifyCompleteFile(
+
+          session.fileId,
+
+          file.size
+
         )
+
       ) {
 
-        fileStates[index].completed =
-          true;
 
-
-        fileStates[index].failed =
-          false;
-
-
-        fileStates[index].percent =
-          100;
-
-
-        updateProgress(
-          index,
-          100,
-          '✓ Uploaded'
+        markComplete(
+          index
         );
 
 
@@ -739,163 +1166,609 @@ async function uploadOneFile(
       }
 
 
+
+      throw new Error(
+
+        'Unexpected upload response: ' +
+        result.status
+
+      );
+
+
+
+    } catch (
+      error
+    ) {
+
+
+      updateProgress(
+
+        index,
+
+        fileStates[index].percent,
+
+        'Checking upload…'
+
+      );
+
+
+
+      /*
+       * First: authoritative Drive check.
+       *
+       * This is what fixes our old
+       * 99% → failed bug.
+       */
+
       if (
-        status &&
-        status.status === 308
+
+        await verifyCompleteFile(
+
+          session.fileId,
+
+          file.size
+
+        )
+
       ) {
 
-        const received =
-          getReceivedOffset(
-            status.rangeHeader
-          );
+
+        markComplete(
+          index
+        );
+
+
+        return;
+      }
+
+
+
+      /*
+       * File is not finished yet.
+       * Ask Google server-to-server
+       * how many bytes it really has.
+       */
+
+      const status =
+
+        await getServerUploadStatus(
+
+          session.sessionUrl,
+
+          file.size
+
+        );
+
+
+
+      if (
+        status &&
+        status.success
+      ) {
 
 
         if (
-          received !== null
+
+          status.status === 200 ||
+
+          status.status === 201
+
         ) {
 
-          offset =
-            received;
+
+          if (
+
+            await waitForDriveFile(
+
+              session.fileId,
+
+              file.size
+
+            )
+
+          ) {
 
 
-          retries =
-            0;
+            markComplete(
+              index
+            );
 
 
-          updateProgress(
-            index,
-            Math.min(
-              99,
-              Math.floor(
-                (
-                  offset /
-                  file.size
-                ) *
-                100
-              )
-            ),
-            'Resuming…'
-          );
+            return;
+          }
+        }
 
 
-          continue;
+
+        if (
+          status.status === 308
+        ) {
+
+
+          const received =
+
+            getReceivedOffset(
+
+              status.range
+
+            );
+
+
+
+          if (
+            received !== null
+          ) {
+
+
+            offset =
+              received;
+
+
+            retries =
+              0;
+
+
+            updateProgress(
+
+              index,
+
+              Math.min(
+
+                99,
+
+                Math.floor(
+
+                  (
+                    offset /
+                    file.size
+                  )
+                  *
+                  100
+
+                )
+
+              ),
+
+              'Resuming…'
+
+            );
+
+
+            continue;
+          }
         }
       }
+
 
 
       retries++;
 
 
+
       if (
-        retries > MAX_RETRIES
+        retries >
+        MAX_RETRIES
       ) {
+
+
+        /*
+         * One final Drive check before
+         * we tell the guest anything failed.
+         */
+
+        if (
+
+          await waitForDriveFile(
+
+            session.fileId,
+
+            file.size
+
+          )
+
+        ) {
+
+
+          markComplete(
+            index
+          );
+
+
+          return;
+        }
+
 
         throw error;
       }
 
 
+
       updateProgress(
+
         index,
+
         fileStates[index].percent,
+
         'Connection interrupted — retrying…'
+
       );
 
 
+
       await wait(
+
         Math.min(
+
           8000,
+
           1000 *
           Math.pow(
             2,
             retries - 1
           )
+
         )
+
       );
     }
   }
 
 
-  const finalStatus =
-    await queryUploadStatus(
-      session.sessionUrl,
+
+  /*
+   * We reached the expected total size,
+   * but Safari never gave us a clean
+   * final response.
+   *
+   * Verify the actual Drive object.
+   */
+
+  updateProgress(
+
+    index,
+
+    99,
+
+    'Finalizing…'
+
+  );
+
+
+
+  const confirmed =
+
+    await waitForDriveFile(
+
+      session.fileId,
+
       file.size
+
     );
+
 
 
   if (
-    finalStatus &&
-    (
-      finalStatus.status === 200 ||
-      finalStatus.status === 201
-    )
+    confirmed
   ) {
 
-    updateProgress(
-      index,
-      100,
-      '✓ Uploaded'
+
+    markComplete(
+      index
     );
-
-
-    fileStates[index].completed =
-      true;
 
 
     return;
   }
 
 
+
   throw new Error(
-    'Upload did not finish correctly.'
+    'Google did not confirm the completed file.'
   );
 }
 
 
 
-function createUploadSession(
-  file,
-  guestName
+
+function markComplete(
+  index
 ) {
 
+
+  fileStates[index].completed =
+    true;
+
+
+  fileStates[index].failed =
+    false;
+
+
+  fileStates[index].percent =
+    100;
+
+
+  updateProgress(
+
+    index,
+
+    100,
+
+    '✓ Uploaded'
+
+  );
+}
+
+
+
+
+async function waitForDriveFile(
+
+  fileId,
+
+  expectedSize
+
+) {
+
+
+  /*
+   * Give Drive a few seconds to expose
+   * metadata after the final chunk.
+   */
+
+  for (
+    let attempt = 0;
+
+    attempt < 12;
+
+    attempt++
+  ) {
+
+
+    const complete =
+
+      await verifyCompleteFile(
+
+        fileId,
+
+        expectedSize
+
+      );
+
+
+    if (
+      complete
+    ) {
+
+      return true;
+    }
+
+
+    await wait(
+      1500
+    );
+  }
+
+
+  return false;
+}
+
+
+
+
+async function verifyCompleteFile(
+
+  fileId,
+
+  expectedSize
+
+) {
+
+
+  try {
+
+
+    const result =
+
+      await callBackend({
+
+        action:
+          'checkFile',
+
+        fileId:
+          fileId,
+
+        expectedSize:
+          String(
+            expectedSize
+          )
+
+      });
+
+
+
+    return !!(
+
+      result &&
+
+      result.success &&
+
+      result.complete
+
+    );
+
+
+  } catch (
+    error
+  ) {
+
+
+    console.warn(
+
+      'Could not verify file yet:',
+
+      error
+
+    );
+
+
+    return false;
+  }
+}
+
+
+
+
+async function getServerUploadStatus(
+
+  sessionUrl,
+
+  totalSize
+
+) {
+
+
+  try {
+
+
+    return await callBackend({
+
+      action:
+        'queryUploadStatus',
+
+      sessionUrl:
+        sessionUrl,
+
+      totalSize:
+        String(
+          totalSize
+        )
+
+    });
+
+
+  } catch (
+    error
+  ) {
+
+
+    console.warn(
+
+      'Could not query upload status:',
+
+      error
+
+    );
+
+
+    return null;
+  }
+}
+
+
+
+
+function createUploadSession(
+
+  file,
+
+  guestName
+
+) {
+
+
+  return callBackend({
+
+    action:
+      'createUploadSession',
+
+    fileName:
+      file.name,
+
+    mimeType:
+      file.type ||
+      'application/octet-stream',
+
+    fileSize:
+      String(
+        file.size
+      ),
+
+    guestName:
+      guestName || ''
+
+  });
+}
+
+
+
+
+function callBackend(
+  parameters
+) {
+
+
   return new Promise(
-    function(resolve, reject) {
+
+    function(
+      resolve,
+      reject
+    ) {
 
 
       const callbackName =
-        '__uploadCallback_' +
+
+        '__callback_' +
+
         Date.now() +
+
         '_' +
+
         Math.floor(
+
           Math.random() *
-          100000
+          1000000
+
         );
+
 
 
       const script =
-        document.createElement(
-          'script'
-        );
+
+        document
+          .createElement(
+            'script'
+          );
+
 
 
       const timeout =
+
         setTimeout(
+
           function() {
+
 
             cleanup();
 
 
             reject(
+
               new Error(
                 'Backend did not respond.'
               )
+
             );
 
           },
-          20000
+
+          30000
+
         );
 
 
+
       function cleanup() {
+
 
         clearTimeout(
           timeout
@@ -911,17 +1784,24 @@ function createUploadSession(
           script.parentNode
         ) {
 
-          script.parentNode.removeChild(
-            script
-          );
+
+          script.parentNode
+            .removeChild(
+              script
+            );
         }
       }
+
 
 
       window[
         callbackName
       ] =
-        function(result) {
+
+        function(
+          result
+        ) {
+
 
           cleanup();
 
@@ -932,135 +1812,186 @@ function createUploadSession(
         };
 
 
+
       const params =
+
         new URLSearchParams({
 
-          action:
-            'createUploadSession',
+          ...parameters,
 
           callback:
-            callbackName,
+            callbackName
 
-          fileName:
-            file.name,
-
-          mimeType:
-            file.type ||
-            'application/octet-stream',
-
-          fileSize:
-            String(
-              file.size
-            ),
-
-          guestName:
-            guestName || ''
         });
 
 
+
       script.src =
+
         BACKEND_URL +
+
         '?' +
+
         params.toString();
 
 
+
       script.onerror =
+
         function() {
+
 
           cleanup();
 
 
           reject(
+
             new Error(
-              'Could not contact upload backend.'
+              'Could not contact backend.'
             )
+
           );
         };
 
 
-      document.body.appendChild(
-        script
-      );
+
+      document.body
+        .appendChild(
+          script
+        );
+
     }
   );
 }
 
 
 
+
 function uploadChunk(
+
   sessionUrl,
+
   chunk,
+
   start,
+
   end,
+
   totalSize,
+
   index
+
 ) {
 
+
   return new Promise(
-    function(resolve, reject) {
+
+    function(
+      resolve,
+      reject
+    ) {
 
 
       const xhr =
+
         new XMLHttpRequest();
 
 
+
       xhr.open(
+
         'PUT',
+
         sessionUrl,
+
         true
+
       );
+
 
 
       xhr.setRequestHeader(
+
         'Content-Range',
 
         'bytes ' +
+
         start +
+
         '-' +
+
         (end - 1) +
+
         '/' +
+
         totalSize
+
       );
 
 
+
       xhr.upload.onprogress =
-        function(event) {
+
+        function(
+          event
+        ) {
+
 
           if (
             !event.lengthComputable
           ) {
+
             return;
           }
 
 
+
           const currentBytes =
+
             start +
+
             event.loaded;
 
 
+
           const percent =
+
             Math.min(
+
               99,
+
               Math.floor(
+
                 (
                   currentBytes /
                   totalSize
-                ) *
+                )
+                *
                 100
+
               )
+
             );
 
 
+
           updateProgress(
+
             index,
+
             percent,
+
             'Uploading…'
+
           );
         };
 
 
+
       xhr.onload =
+
         function() {
+
 
           resolve({
 
@@ -1071,120 +2002,64 @@ function uploadChunk(
               xhr.getResponseHeader(
                 'Range'
               )
+
           });
         };
 
 
+
       xhr.onerror =
+
         function() {
 
+
           reject(
+
             new Error(
               'Network response was interrupted.'
             )
+
           );
         };
+
 
 
       xhr.ontimeout =
+
         function() {
 
+
           reject(
+
             new Error(
               'Upload timed out.'
             )
+
           );
         };
+
 
 
       xhr.timeout =
         120000;
 
 
+
       xhr.send(
         chunk
       );
+
     }
   );
 }
 
-
-
-function queryUploadStatus(
-  sessionUrl,
-  totalSize
-) {
-
-  return new Promise(
-    function(resolve) {
-
-
-      const xhr =
-        new XMLHttpRequest();
-
-
-      xhr.open(
-        'PUT',
-        sessionUrl,
-        true
-      );
-
-
-      xhr.setRequestHeader(
-        'Content-Range',
-        'bytes */' +
-        totalSize
-      );
-
-
-      xhr.onload =
-        function() {
-
-          resolve({
-
-            status:
-              xhr.status,
-
-            rangeHeader:
-              xhr.getResponseHeader(
-                'Range'
-              )
-          });
-        };
-
-
-      xhr.onerror =
-        function() {
-
-          resolve(
-            null
-          );
-        };
-
-
-      xhr.timeout =
-        30000;
-
-
-      xhr.ontimeout =
-        function() {
-
-          resolve(
-            null
-          );
-        };
-
-
-      xhr.send();
-    }
-  );
-}
 
 
 
 function getReceivedOffset(
   rangeHeader
 ) {
+
 
   if (
     !rangeHeader
@@ -1194,10 +2069,16 @@ function getReceivedOffset(
   }
 
 
+
   const match =
-    rangeHeader.match(
-      /bytes=0-(\d+)/
-    );
+
+    String(
+      rangeHeader
+    )
+      .match(
+        /bytes=0-(\d+)/
+      );
+
 
 
   if (
@@ -1208,22 +2089,37 @@ function getReceivedOffset(
   }
 
 
+
   return (
+
     parseInt(
+
       match[1],
+
       10
-    ) +
+
+    )
+
+    +
+
     1
+
   );
 }
 
 
 
+
 function updateProgress(
+
   index,
+
   percent,
+
   status
+
 ) {
+
 
   fileStates[index].percent =
     percent;
@@ -1233,43 +2129,60 @@ function updateProgress(
     status;
 
 
+
   const bar =
-    document.getElementById(
-      'bar-' + index
-    );
+
+    document
+      .getElementById(
+        'bar-' + index
+      );
+
 
 
   const percentElement =
-    document.getElementById(
-      'percent-' + index
-    );
+
+    document
+      .getElementById(
+        'percent-' + index
+      );
+
 
 
   const statusElement =
-    document.getElementById(
-      'status-' + index
-    );
+
+    document
+      .getElementById(
+        'status-' + index
+      );
 
 
-  if (bar) {
+
+  if (
+    bar
+  ) {
+
 
     bar.style.width =
       percent + '%';
   }
 
 
+
   if (
     percentElement
   ) {
+
 
     percentElement.innerText =
       percent + '%';
   }
 
 
+
   if (
     statusElement
   ) {
+
 
     statusElement.innerText =
       status;
@@ -1278,7 +2191,9 @@ function updateProgress(
 
 
 
+
 function resetUploader() {
+
 
   selectedFiles =
     [];
@@ -1292,35 +2207,67 @@ function resetUploader() {
     false;
 
 
-  document.getElementById('photoFiles').value =
-    '';
+
+  document
+    .getElementById(
+      'photoFiles'
+    )
+    .value =
+      '';
 
 
-  document.getElementById('originalFiles').value =
-    '';
+
+  document
+    .getElementById(
+      'originalFiles'
+    )
+    .value =
+      '';
 
 
-  document.getElementById('summary').innerText =
-    '';
+
+  document
+    .getElementById(
+      'summary'
+    )
+    .innerText =
+      '';
 
 
-  document.getElementById('fileList').innerHTML =
-    '';
+
+  document
+    .getElementById(
+      'fileList'
+    )
+    .innerHTML =
+      '';
 
 
-  document.getElementById('overall').innerHTML =
-    '';
+
+  document
+    .getElementById(
+      'overall'
+    )
+    .innerHTML =
+      '';
 
 
-  document.getElementById('uploadButton').disabled =
-    false;
+
+  document
+    .getElementById(
+      'uploadButton'
+    )
+    .disabled =
+      false;
 }
+
 
 
 
 function formatBytes(
   bytes
 ) {
+
 
   if (
     !bytes
@@ -1330,41 +2277,68 @@ function formatBytes(
   }
 
 
-  const units =
-    [
-      'B',
-      'KB',
-      'MB',
-      'GB',
-      'TB'
-    ];
+
+  const units = [
+
+    'B',
+    'KB',
+    'MB',
+    'GB',
+    'TB'
+
+  ];
+
 
 
   const index =
+
     Math.floor(
-      Math.log(bytes) /
-      Math.log(1024)
+
+      Math.log(
+        bytes
+      )
+
+      /
+
+      Math.log(
+        1024
+      )
+
     );
 
 
+
   return (
+
     (
+
       bytes /
+
       Math.pow(
         1024,
         index
       )
-    ).toFixed(
-      index >= 2
-        ? 1
-        : 0
+
     )
+      .toFixed(
+
+        index >= 2
+          ? 1
+          : 0
+
+      )
+
     +
+
     ' '
+
     +
+
     units[index]
+
   );
 }
+
 
 
 
@@ -1372,10 +2346,13 @@ function escapeHtml(
   text
 ) {
 
+
   const div =
-    document.createElement(
-      'div'
-    );
+
+    document
+      .createElement(
+        'div'
+      );
 
 
   div.textContent =
@@ -1387,20 +2364,31 @@ function escapeHtml(
 
 
 
+
 function wait(
   milliseconds
 ) {
 
+
   return new Promise(
+
     resolve =>
+
       setTimeout(
+
         resolve,
+
         milliseconds
+
       )
+
   );
 }
 
+
 </script>
 
+
 </body>
+
 </html>
