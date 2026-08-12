@@ -93,11 +93,73 @@
       font-size: 17px;
     }
 
-    #selection {
+    .summary {
       margin: 18px 0;
 
       font-size: 14px;
       opacity: .7;
+    }
+
+    .file-card {
+      margin: 10px 0;
+      padding: 14px;
+
+      border-radius: 12px;
+
+      background: rgba(255,255,255,.75);
+
+      text-align: left;
+    }
+
+    .file-top {
+      display: flex;
+      justify-content: space-between;
+
+      gap: 12px;
+    }
+
+    .file-name {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+
+      font-size: 14px;
+    }
+
+    .file-size {
+      flex-shrink: 0;
+
+      font-size: 12px;
+      opacity: .6;
+    }
+
+    .status {
+      display: flex;
+      justify-content: space-between;
+
+      margin-top: 8px;
+
+      font-size: 12px;
+      opacity: .7;
+    }
+
+    .progress {
+      height: 5px;
+
+      margin-top: 8px;
+
+      overflow: hidden;
+
+      border-radius: 999px;
+
+      background: rgba(41,40,33,.12);
+    }
+
+    .progress-bar {
+      width: 0%;
+      height: 100%;
+
+      background: #292821;
     }
 
     button {
@@ -110,15 +172,27 @@
       background: #292821;
       color: white;
 
+      cursor: pointer;
       font-size: 17px;
     }
 
-    .test-note {
-      margin-top: 24px;
+    button:disabled {
+      opacity: .45;
+    }
 
-      font-size: 12px;
+    #overall {
+      margin-top: 22px;
+
       line-height: 1.5;
-      opacity: .55;
+    }
+
+    .secondary {
+      margin-top: 16px;
+
+      border: 1px solid #292821;
+
+      background: transparent;
+      color: #292821;
     }
   </style>
 </head>
@@ -126,120 +200,785 @@
 
 <body>
 
-  <main class="wrap">
+<main class="wrap">
 
-    <h1>Lola & Santi</h1>
+  <h1>Lola & Santi</h1>
 
-    <div class="date">
-      12 · 09 · 2026
-    </div>
+  <div class="date">
+    12 · 09 · 2026
+  </div>
 
 
-    <div class="intro">
-      You saw moments we didn't.<br>
-      Share them with us. ♡
-    </div>
+  <div class="intro">
+    You saw moments we didn't.<br>
+    Share them with us. ♡
+  </div>
 
+
+  <input
+    id="guestName"
+    type="text"
+    placeholder="Your name (optional)"
+  >
+
+
+  <label class="choose">
+
+    📷 Choose photos & videos
 
     <input
-      type="text"
-      placeholder="Your name (optional)"
+      id="files"
+      type="file"
+      accept="image/*,video/*"
+      multiple
+      onchange="showSelection()"
     >
 
-
-    <label class="choose">
-
-      📷 Choose photos & videos
-
-      <input
-        id="files"
-        type="file"
-        accept="image/*,video/*"
-        multiple
-        onchange="showSelection()"
-      >
-
-    </label>
+  </label>
 
 
-    <div id="selection"></div>
+  <div id="summary" class="summary"></div>
+
+  <div id="fileList"></div>
 
 
-    <button type="button">
-      Share photos & videos
-    </button>
+  <button
+    id="uploadButton"
+    type="button"
+    onclick="startUpload()"
+  >
+    Share photos & videos
+  </button>
 
 
-    <div class="test-note">
-      Test version — uploading will be connected next.
-    </div>
+  <div id="overall"></div>
 
-  </main>
+</main>
 
 
-  <script>
+<script>
 
-    function showSelection() {
-
-      const files =
-        Array.from(
-          document.getElementById('files').files
-        );
+const BACKEND_URL =
+  'https://script.google.com/macros/s/AKfycbx2vdi2nqGoyrrNToJhu0JrElylkWVM1knWDGrYA7LbFjWodyJDFM3S17uxhsq5Nv8ffg/exec';
 
 
-      if (!files.length) {
-
-        document.getElementById('selection').innerText =
-          '';
-
-        return;
-      }
+const CHUNK_SIZE =
+  8 * 1024 * 1024;
 
 
-      const totalBytes =
-        files.reduce(
-          (sum, file) => sum + file.size,
-          0
-        );
+let selectedFiles = [];
+
+let fileStates = [];
+
+let uploading = false;
 
 
-      document.getElementById('selection').innerText =
-        files.length +
-        (files.length === 1 ? ' file' : ' files') +
+
+function showSelection() {
+
+  selectedFiles =
+    Array.from(
+      document.getElementById('files').files
+    );
+
+
+  fileStates =
+    selectedFiles.map(function() {
+
+      return {
+        percent: 0,
+        status: 'Ready',
+        completed: false,
+        failed: false
+      };
+
+    });
+
+
+  const totalBytes =
+    selectedFiles.reduce(
+      (sum, file) => sum + file.size,
+      0
+    );
+
+
+  document.getElementById('summary').innerText =
+    selectedFiles.length
+      ? selectedFiles.length +
+        (selectedFiles.length === 1
+          ? ' file'
+          : ' files') +
         ' · ' +
-        formatBytes(totalBytes);
+        formatBytes(totalBytes)
+      : '';
+
+
+  renderFileList();
+
+  document.getElementById('overall').innerHTML =
+    '';
+}
+
+
+
+function renderFileList() {
+
+  const container =
+    document.getElementById('fileList');
+
+
+  container.innerHTML = '';
+
+
+  selectedFiles.forEach(
+    function(file, index) {
+
+      const card =
+        document.createElement('div');
+
+
+      card.className =
+        'file-card';
+
+
+      card.innerHTML = `
+
+        <div class="file-top">
+
+          <div class="file-name">
+            ${escapeHtml(file.name)}
+          </div>
+
+          <div class="file-size">
+            ${formatBytes(file.size)}
+          </div>
+
+        </div>
+
+
+        <div class="status">
+
+          <span id="status-${index}">
+            Ready
+          </span>
+
+          <span id="percent-${index}">
+            0%
+          </span>
+
+        </div>
+
+
+        <div class="progress">
+
+          <div
+            id="bar-${index}"
+            class="progress-bar">
+          </div>
+
+        </div>
+      `;
+
+
+      container.appendChild(card);
+
     }
+  );
+}
 
 
-    function formatBytes(bytes) {
 
-      if (!bytes) {
-        return '0 B';
-      }
+async function startUpload() {
 
-
-      const units =
-        ['B', 'KB', 'MB', 'GB', 'TB'];
+  if (uploading) {
+    return;
+  }
 
 
-      const index =
-        Math.floor(
-          Math.log(bytes) /
-          Math.log(1024)
-        );
+  if (!selectedFiles.length) {
+
+    document.getElementById('overall').innerText =
+      'Choose at least one photo or video first.';
+
+    return;
+  }
 
 
-      return (
-        (bytes / Math.pow(1024, index))
-          .toFixed(index >= 2 ? 1 : 0)
-        +
-        ' '
-        +
-        units[index]
+  uploading = true;
+
+
+  document.getElementById('uploadButton').disabled =
+    true;
+
+
+  const guestName =
+    document.getElementById('guestName').value;
+
+
+  let completed =
+    0;
+
+
+  for (
+    let index = 0;
+    index < selectedFiles.length;
+    index++
+  ) {
+
+    try {
+
+      await uploadOneFile(
+        selectedFiles[index],
+        index,
+        guestName
+      );
+
+
+      completed++;
+
+
+    } catch (error) {
+
+      console.error(error);
+
+
+      fileStates[index].failed =
+        true;
+
+
+      updateProgress(
+        index,
+        fileStates[index].percent,
+        'Upload failed'
       );
     }
 
-  </script>
+
+    document.getElementById('overall').innerText =
+      completed +
+      ' of ' +
+      selectedFiles.length +
+      ' uploaded';
+  }
+
+
+  uploading = false;
+
+
+  document.getElementById('uploadButton').disabled =
+    false;
+
+
+  const failed =
+    fileStates.filter(
+      state => state.failed
+    ).length;
+
+
+  if (!failed) {
+
+    document.getElementById('overall').innerHTML = `
+
+      ♡ Thank you.<br>
+      Everything is safely with us.
+
+      <button
+        class="secondary"
+        onclick="resetUploader()">
+        Upload more
+      </button>
+    `;
+
+  } else {
+
+    document.getElementById('overall').innerHTML = `
+
+      ${completed}
+      uploaded successfully.<br>
+
+      ${failed}
+      ${failed === 1
+        ? 'file failed.'
+        : 'files failed.'}
+    `;
+  }
+}
+
+
+
+async function uploadOneFile(
+  file,
+  index,
+  guestName
+) {
+
+  updateProgress(
+    index,
+    0,
+    'Preparing…'
+  );
+
+
+  const session =
+    await createUploadSession(
+      file,
+      guestName
+    );
+
+
+  if (
+    !session ||
+    !session.success ||
+    !session.sessionUrl
+  ) {
+
+    throw new Error(
+      session && session.error
+        ? session.error
+        : 'Could not prepare upload.'
+    );
+  }
+
+
+  let offset =
+    0;
+
+
+  while (
+    offset < file.size
+  ) {
+
+    const end =
+      Math.min(
+        offset + CHUNK_SIZE,
+        file.size
+      );
+
+
+    const chunk =
+      file.slice(
+        offset,
+        end
+      );
+
+
+    await uploadChunk(
+      session.sessionUrl,
+      chunk,
+      offset,
+      end,
+      file.size,
+      index
+    );
+
+
+    offset =
+      end;
+
+
+    const percent =
+      Math.round(
+        (
+          offset /
+          file.size
+        ) *
+        100
+      );
+
+
+    updateProgress(
+      index,
+      percent,
+      percent === 100
+        ? '✓ Uploaded'
+        : 'Uploading…'
+    );
+  }
+
+
+  fileStates[index].completed =
+    true;
+
+
+  fileStates[index].percent =
+    100;
+}
+
+
+
+function createUploadSession(
+  file,
+  guestName
+) {
+
+  return new Promise(
+    function(resolve, reject) {
+
+
+      const callbackName =
+        '__uploadCallback_' +
+        Date.now() +
+        '_' +
+        Math.floor(
+          Math.random() * 100000
+        );
+
+
+      const script =
+        document.createElement('script');
+
+
+      const timeout =
+        setTimeout(
+          function() {
+
+            cleanup();
+
+            reject(
+              new Error(
+                'Backend did not respond.'
+              )
+            );
+
+          },
+          20000
+        );
+
+
+      function cleanup() {
+
+        clearTimeout(timeout);
+
+        delete window[callbackName];
+
+        if (script.parentNode) {
+          script.parentNode.removeChild(script);
+        }
+      }
+
+
+      window[callbackName] =
+        function(result) {
+
+          cleanup();
+
+          resolve(result);
+        };
+
+
+      const params =
+        new URLSearchParams({
+
+          action:
+            'createUploadSession',
+
+          callback:
+            callbackName,
+
+          fileName:
+            file.name,
+
+          mimeType:
+            file.type ||
+            'application/octet-stream',
+
+          fileSize:
+            String(file.size),
+
+          guestName:
+            guestName || ''
+        });
+
+
+      script.src =
+        BACKEND_URL +
+        '?' +
+        params.toString();
+
+
+      script.onerror =
+        function() {
+
+          cleanup();
+
+          reject(
+            new Error(
+              'Could not contact upload backend.'
+            )
+          );
+        };
+
+
+      document.body.appendChild(
+        script
+      );
+
+    }
+  );
+}
+
+
+
+function uploadChunk(
+  sessionUrl,
+  chunk,
+  start,
+  end,
+  totalSize,
+  index
+) {
+
+  return new Promise(
+    function(resolve, reject) {
+
+
+      const xhr =
+        new XMLHttpRequest();
+
+
+      xhr.open(
+        'PUT',
+        sessionUrl,
+        true
+      );
+
+
+      xhr.setRequestHeader(
+        'Content-Range',
+
+        'bytes ' +
+        start +
+        '-' +
+        (end - 1) +
+        '/' +
+        totalSize
+      );
+
+
+      xhr.upload.onprogress =
+        function(event) {
+
+          if (
+            !event.lengthComputable
+          ) {
+            return;
+          }
+
+
+          const currentBytes =
+            start +
+            event.loaded;
+
+
+          const percent =
+            Math.min(
+              99,
+              Math.round(
+                (
+                  currentBytes /
+                  totalSize
+                ) *
+                100
+              )
+            );
+
+
+          updateProgress(
+            index,
+            percent,
+            'Uploading…'
+          );
+        };
+
+
+      xhr.onload =
+        function() {
+
+          /*
+           * Google resumable uploads return:
+           *
+           * 308 = chunk accepted, more expected
+           * 200/201 = upload complete
+           */
+
+          if (
+            xhr.status === 308 ||
+            xhr.status === 200 ||
+            xhr.status === 201
+          ) {
+
+            resolve();
+
+          } else {
+
+            reject(
+              new Error(
+                'Google returned HTTP ' +
+                xhr.status
+              )
+            );
+          }
+        };
+
+
+      xhr.onerror =
+        function() {
+
+          reject(
+            new Error(
+              'Network error while uploading.'
+            )
+          );
+        };
+
+
+      xhr.send(chunk);
+
+    }
+  );
+}
+
+
+
+function updateProgress(
+  index,
+  percent,
+  status
+) {
+
+  fileStates[index].percent =
+    percent;
+
+
+  fileStates[index].status =
+    status;
+
+
+  const bar =
+    document.getElementById(
+      'bar-' + index
+    );
+
+
+  const percentElement =
+    document.getElementById(
+      'percent-' + index
+    );
+
+
+  const statusElement =
+    document.getElementById(
+      'status-' + index
+    );
+
+
+  if (bar) {
+
+    bar.style.width =
+      percent + '%';
+  }
+
+
+  if (percentElement) {
+
+    percentElement.innerText =
+      percent + '%';
+  }
+
+
+  if (statusElement) {
+
+    statusElement.innerText =
+      status;
+  }
+}
+
+
+
+function resetUploader() {
+
+  selectedFiles =
+    [];
+
+
+  fileStates =
+    [];
+
+
+  document.getElementById('files').value =
+    '';
+
+
+  document.getElementById('summary').innerText =
+    '';
+
+
+  document.getElementById('fileList').innerHTML =
+    '';
+
+
+  document.getElementById('overall').innerHTML =
+    '';
+}
+
+
+
+function formatBytes(bytes) {
+
+  if (!bytes) {
+    return '0 B';
+  }
+
+
+  const units =
+    [
+      'B',
+      'KB',
+      'MB',
+      'GB',
+      'TB'
+    ];
+
+
+  const index =
+    Math.floor(
+      Math.log(bytes) /
+      Math.log(1024)
+    );
+
+
+  return (
+    (
+      bytes /
+      Math.pow(1024, index)
+    ).toFixed(
+      index >= 2
+        ? 1
+        : 0
+    )
+    +
+    ' '
+    +
+    units[index]
+  );
+}
+
+
+
+function escapeHtml(text) {
+
+  const div =
+    document.createElement('div');
+
+
+  div.textContent =
+    text;
+
+
+  return div.innerHTML;
+}
+
+</script>
 
 </body>
 </html>
