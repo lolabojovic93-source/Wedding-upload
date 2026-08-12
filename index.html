@@ -10,9 +10,7 @@
     content="width=device-width, initial-scale=1"
   >
 
-  <title>
-    Lola & Santi
-  </title>
+  <title>Lola & Santi</title>
 
 
   <style>
@@ -25,7 +23,6 @@
     body {
 
       margin: 0;
-
       min-height: 100vh;
 
       padding:
@@ -33,11 +30,8 @@
         20px
         60px;
 
-      background:
-        #f7f4ee;
-
-      color:
-        #292821;
+      background: #f7f4ee;
+      color: #292821;
 
       font-family:
         -apple-system,
@@ -46,85 +40,59 @@
         Arial,
         sans-serif;
 
-      text-align:
-        center;
+      text-align: center;
     }
 
 
     .wrap {
 
       width: 100%;
-
-      max-width:
-        560px;
-
-      margin:
-        0 auto;
+      max-width: 560px;
+      margin: 0 auto;
     }
 
 
     h1 {
 
-      margin:
-        5px 0 8px;
+      margin: 5px 0 8px;
 
-      font-family:
-        Georgia,
-        serif;
+      font-family: Georgia, serif;
 
-      font-size:
-        42px;
-
-      font-weight:
-        normal;
+      font-size: 42px;
+      font-weight: normal;
     }
 
 
     .date {
 
-      margin-bottom:
-        44px;
+      margin-bottom: 44px;
 
-      font-size:
-        12px;
-
-      letter-spacing:
-        3px;
+      font-size: 12px;
+      letter-spacing: 3px;
     }
 
 
     .intro {
 
-      margin-bottom:
-        30px;
+      margin-bottom: 30px;
 
-      font-size:
-        18px;
-
-      line-height:
-        1.5;
+      font-size: 18px;
+      line-height: 1.5;
     }
 
 
     input[type="text"] {
 
-      width:
-        100%;
+      width: 100%;
 
-      padding:
-        17px;
+      padding: 17px;
 
-      border:
-        1px solid #bbb;
+      border: 1px solid #bbb;
+      border-radius: 12px;
 
-      border-radius:
-        12px;
+      background: white;
 
-      background:
-        white;
-
-      font-size:
-        16px;
+      font-size: 16px;
     }
 
 
@@ -135,32 +103,22 @@
 
     .choose {
 
-      display:
-        block;
+      display: block;
 
-      width:
-        100%;
+      width: 100%;
 
-      margin-top:
-        14px;
+      margin-top: 14px;
 
-      padding:
-        19px;
+      padding: 19px;
 
-      border:
-        1px solid #292821;
+      border: 1px solid #292821;
+      border-radius: 12px;
 
-      border-radius:
-        12px;
+      background: white;
 
-      background:
-        white;
+      cursor: pointer;
 
-      cursor:
-        pointer;
-
-      font-size:
-        17px;
+      font-size: 17px;
     }
 
 
@@ -172,42 +130,34 @@
     .hint {
 
       margin:
-        9px 8px 20px;
+        9px
+        8px
+        20px;
 
-      font-size:
-        12px;
+      font-size: 12px;
+      line-height: 1.45;
 
-      line-height:
-        1.45;
-
-      opacity:
-        .62;
+      opacity: .62;
     }
 
 
     .summary {
 
-      margin:
-        18px 0;
+      margin: 18px 0;
 
-      font-size:
-        14px;
+      font-size: 14px;
 
-      opacity:
-        .7;
+      opacity: .7;
     }
 
 
     .file-card {
 
-      margin:
-        10px 0;
+      margin: 10px 0;
 
-      padding:
-        14px;
+      padding: 14px;
 
-      border-radius:
-        12px;
+      border-radius: 12px;
 
       background:
         rgba(
@@ -217,28 +167,24 @@
           .75
         );
 
-      text-align:
-        left;
+      text-align: left;
     }
 
 
     .file-top {
 
-      display:
-        flex;
+      display: flex;
 
       justify-content:
         space-between;
 
-      gap:
-        12px;
+      gap: 12px;
     }
 
 
     .file-name {
 
-      overflow:
-        hidden;
+      overflow: hidden;
 
       text-overflow:
         ellipsis;
@@ -246,56 +192,46 @@
       white-space:
         nowrap;
 
-      font-size:
-        14px;
+      font-size: 14px;
     }
 
 
     .file-size {
 
-      flex-shrink:
-        0;
+      flex-shrink: 0;
 
-      font-size:
-        12px;
+      font-size: 12px;
 
-      opacity:
-        .6;
+      opacity: .6;
     }
 
 
     .status {
 
-      display:
-        flex;
+      display: flex;
 
       justify-content:
         space-between;
 
-      margin-top:
-        8px;
+      align-items: center;
 
-      font-size:
-        12px;
+      margin-top: 8px;
 
-      opacity:
-        .7;
+      font-size: 12px;
+
+      opacity: .7;
     }
 
 
     .progress {
 
-      height:
-        5px;
+      height: 5px;
 
-      margin-top:
-        8px;
+      margin-top: 8px;
 
-      overflow:
-        hidden;
+      overflow: hidden;
 
-      border-radius:
-        999px;
+      border-radius: 999px;
 
       background:
         rgba(
@@ -309,14 +245,10 @@
 
     .progress-bar {
 
-      width:
-        0%;
+      width: 0%;
+      height: 100%;
 
-      height:
-        100%;
-
-      background:
-        #292821;
+      background: #292821;
 
       transition:
         width
@@ -325,31 +257,31 @@
     }
 
 
+    .saving-note {
+
+      margin-left: 5px;
+
+      font-size: 11px;
+
+      opacity: .65;
+    }
+
+
     button {
 
-      width:
-        100%;
+      width: 100%;
 
-      padding:
-        19px;
+      padding: 19px;
 
-      border:
-        0;
+      border: 0;
+      border-radius: 12px;
 
-      border-radius:
-        12px;
+      background: #292821;
+      color: white;
 
-      background:
-        #292821;
+      cursor: pointer;
 
-      color:
-        white;
-
-      cursor:
-        pointer;
-
-      font-size:
-        17px;
+      font-size: 17px;
     }
 
 
@@ -360,21 +292,19 @@
 
     #overall {
 
-      margin-top:
-        22px;
+      margin-top: 22px;
 
-      line-height:
-        1.5;
+      line-height: 1.5;
     }
 
 
     .secondary {
 
-      margin-top:
-        16px;
+      margin-top: 16px;
 
       border:
-        1px solid #292821;
+        1px solid
+        #292821;
 
       background:
         transparent;
@@ -508,33 +438,22 @@
 
 
 const BACKEND_URL =
-
   'https://script.google.com/macros/s/AKfycbx2vdi2nqGoyrrNToJhu0JrElylkWVM1knWDGrYA7LbFjWodyJDFM3S17uxhsq5Nv8ffg/exec';
-
 
 
 const CHUNK_SIZE =
   8 * 1024 * 1024;
 
 
-
 const MAX_RETRIES =
   5;
 
 
+let selectedFiles = [];
 
-let selectedFiles =
-  [];
+let fileStates = [];
 
-
-
-let fileStates =
-  [];
-
-
-
-let uploading =
-  false;
+let uploading = false;
 
 
 
@@ -556,23 +475,17 @@ function filesSelected(
 
         return {
 
-          percent:
-            0,
+          percent: 0,
 
-          status:
-            'Ready',
+          status: 'Ready',
 
-          completed:
-            false,
+          completed: false,
 
-          failed:
-            false,
+          failed: false,
 
-          sessionUrl:
-            null,
+          sessionUrl: null,
 
-          fileId:
-            null
+          fileId: null
         };
 
       }
@@ -1046,11 +959,6 @@ async function uploadOneFile(
 
 
 
-      /*
-       * Google explicitly confirmed
-       * completion.
-       */
-
       if (
 
         result.status === 200 ||
@@ -1069,10 +977,6 @@ async function uploadOneFile(
       }
 
 
-
-      /*
-       * Normal intermediate chunk.
-       */
 
       if (
         result.status === 308
@@ -1135,15 +1039,6 @@ async function uploadOneFile(
 
 
 
-      /*
-       * Safari sometimes reports an
-       * unexpected final response.
-       *
-       * Before treating that as failure,
-       * ask OUR backend whether the
-       * expected Drive file exists.
-       */
-
       if (
 
         await verifyCompleteFile(
@@ -1181,24 +1076,32 @@ async function uploadOneFile(
     ) {
 
 
-      updateProgress(
-
-        index,
-
-        fileStates[index].percent,
-
-        'Checking upload…'
-
-      );
-
-
-
       /*
-       * First: authoritative Drive check.
-       *
-       * This is what fixes our old
-       * 99% → failed bug.
+       * Pokud jsme skoro na konci,
+       * host už neuvidí "Checking 99%".
        */
+      if (
+        fileStates[index].percent >= 95
+      ) {
+
+        updateFinalizing(
+          index
+        );
+
+      } else {
+
+        updateProgress(
+
+          index,
+
+          fileStates[index].percent,
+
+          'Checking upload…'
+
+        );
+      }
+
+
 
       if (
 
@@ -1222,12 +1125,6 @@ async function uploadOneFile(
       }
 
 
-
-      /*
-       * File is not finished yet.
-       * Ask Google server-to-server
-       * how many bytes it really has.
-       */
 
       const status =
 
@@ -1254,6 +1151,11 @@ async function uploadOneFile(
           status.status === 201
 
         ) {
+
+
+          updateFinalizing(
+            index
+          );
 
 
           if (
@@ -1351,10 +1253,10 @@ async function uploadOneFile(
       ) {
 
 
-        /*
-         * One final Drive check before
-         * we tell the guest anything failed.
-         */
+        updateFinalizing(
+          index
+        );
+
 
         if (
 
@@ -1416,21 +1318,13 @@ async function uploadOneFile(
 
 
   /*
-   * We reached the expected total size,
-   * but Safari never gave us a clean
-   * final response.
-   *
-   * Verify the actual Drive object.
+   * Poslední fáze:
+   * data jsou odeslaná,
+   * jen bezpečně čekáme na potvrzení Drive.
    */
 
-  updateProgress(
-
-    index,
-
-    99,
-
-    'Finalizing…'
-
+  updateFinalizing(
+    index
   );
 
 
@@ -1509,11 +1403,6 @@ async function waitForDriveFile(
 
 ) {
 
-
-  /*
-   * Give Drive a few seconds to expose
-   * metadata after the final chunk.
-   */
 
   for (
     let attempt = 0;
@@ -2186,6 +2075,94 @@ function updateProgress(
 
     statusElement.innerText =
       status;
+  }
+}
+
+
+
+
+function updateFinalizing(
+  index
+) {
+
+
+  fileStates[index].percent =
+    99;
+
+
+  fileStates[index].status =
+    'Saving safely…';
+
+
+
+  const bar =
+
+    document
+      .getElementById(
+        'bar-' + index
+      );
+
+
+
+  const percentElement =
+
+    document
+      .getElementById(
+        'percent-' + index
+      );
+
+
+
+  const statusElement =
+
+    document
+      .getElementById(
+        'status-' + index
+      );
+
+
+
+  if (
+    bar
+  ) {
+
+    /*
+     * Vizuálně je už lišta plná,
+     * i když čekáme na bezpečné potvrzení.
+     */
+    bar.style.width =
+      '100%';
+  }
+
+
+
+  if (
+    percentElement
+  ) {
+
+    /*
+     * Schováme 99 %,
+     * aby to nevypadalo zaseknutě.
+     */
+    percentElement.innerText =
+      '';
+  }
+
+
+
+  if (
+    statusElement
+  ) {
+
+    statusElement.innerHTML =
+
+      'Saving safely…' +
+
+      '<span class="saving-note">' +
+
+      'please keep this page open' +
+
+      '</span>';
   }
 }
 
