@@ -48,15 +48,13 @@
     }
 
     .date {
-      margin-bottom: 48px;
-
+      margin-bottom: 44px;
       font-size: 12px;
       letter-spacing: 3px;
     }
 
     .intro {
-      margin-bottom: 32px;
-
+      margin-bottom: 30px;
       font-size: 18px;
       line-height: 1.5;
     }
@@ -69,7 +67,6 @@
       border-radius: 12px;
 
       background: white;
-
       font-size: 16px;
     }
 
@@ -79,10 +76,9 @@
 
     .choose {
       display: block;
-
       width: 100%;
       margin-top: 14px;
-      padding: 20px;
+      padding: 19px;
 
       border: 1px solid #292821;
       border-radius: 12px;
@@ -91,6 +87,19 @@
 
       cursor: pointer;
       font-size: 17px;
+    }
+
+    .original {
+      margin-top: 10px;
+      background: transparent;
+    }
+
+    .hint {
+      margin: 9px 8px 20px;
+
+      font-size: 12px;
+      line-height: 1.45;
+      opacity: .62;
     }
 
     .summary {
@@ -105,7 +114,6 @@
       padding: 14px;
 
       border-radius: 12px;
-
       background: rgba(255,255,255,.75);
 
       text-align: left;
@@ -114,7 +122,6 @@
     .file-top {
       display: flex;
       justify-content: space-between;
-
       gap: 12px;
     }
 
@@ -122,13 +129,11 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-
       font-size: 14px;
     }
 
     .file-size {
       flex-shrink: 0;
-
       font-size: 12px;
       opacity: .6;
     }
@@ -145,11 +150,9 @@
 
     .progress {
       height: 5px;
-
       margin-top: 8px;
 
       overflow: hidden;
-
       border-radius: 999px;
 
       background: rgba(41,40,33,.12);
@@ -160,6 +163,8 @@
       height: 100%;
 
       background: #292821;
+
+      transition: width .15s ease;
     }
 
     button {
@@ -182,7 +187,6 @@
 
     #overall {
       margin-top: 22px;
-
       line-height: 1.5;
     }
 
@@ -224,20 +228,45 @@
 
   <label class="choose">
 
-    📷 Choose photos & videos
+    📷 Choose from Photos
 
     <input
-      id="files"
+      id="photoFiles"
       type="file"
       accept="image/*,video/*"
       multiple
-      onchange="showSelection()"
+      onchange="filesSelected(this.files)"
     >
 
   </label>
 
 
-  <div id="summary" class="summary"></div>
+  <label class="choose original">
+
+    ⬆ Upload original file
+
+    <input
+      id="originalFiles"
+      type="file"
+      multiple
+      onchange="filesSelected(this.files)"
+    >
+
+  </label>
+
+
+  <div class="hint">
+    Want to send the untouched original?
+    On iPhone, choose <strong>Upload original file</strong>
+    and select it from the Files app.
+  </div>
+
+
+  <div
+    id="summary"
+    class="summary">
+  </div>
+
 
   <div id="fileList"></div>
 
@@ -247,7 +276,7 @@
     type="button"
     onclick="startUpload()"
   >
-    Share photos & videos
+    Share selected files
   </button>
 
 
@@ -266,6 +295,10 @@ const CHUNK_SIZE =
   8 * 1024 * 1024;
 
 
+const MAX_RETRIES =
+  4;
+
+
 let selectedFiles = [];
 
 let fileStates = [];
@@ -274,12 +307,10 @@ let uploading = false;
 
 
 
-function showSelection() {
+function filesSelected(fileList) {
 
   selectedFiles =
-    Array.from(
-      document.getElementById('files').files
-    );
+    Array.from(fileList);
 
 
   fileStates =
@@ -315,6 +346,7 @@ function showSelection() {
 
   renderFileList();
 
+
   document.getElementById('overall').innerHTML =
     '';
 }
@@ -327,7 +359,8 @@ function renderFileList() {
     document.getElementById('fileList');
 
 
-  container.innerHTML = '';
+  container.innerHTML =
+    '';
 
 
   selectedFiles.forEach(
@@ -380,8 +413,9 @@ function renderFileList() {
       `;
 
 
-      container.appendChild(card);
-
+      container.appendChild(
+        card
+      );
     }
   );
 }
@@ -398,13 +432,14 @@ async function startUpload() {
   if (!selectedFiles.length) {
 
     document.getElementById('overall').innerText =
-      'Choose at least one photo or video first.';
+      'Choose at least one file first.';
 
     return;
   }
 
 
-  uploading = true;
+  uploading =
+    true;
 
 
   document.getElementById('uploadButton').disabled =
@@ -439,7 +474,10 @@ async function startUpload() {
 
     } catch (error) {
 
-      console.error(error);
+      console.error(
+        'Upload failed:',
+        error
+      );
 
 
       fileStates[index].failed =
@@ -462,7 +500,8 @@ async function startUpload() {
   }
 
 
-  uploading = false;
+  uploading =
+    false;
 
 
   document.getElementById('uploadButton').disabled =
@@ -498,8 +537,8 @@ async function startUpload() {
 
       ${failed}
       ${failed === 1
-        ? 'file failed.'
-        : 'files failed.'}
+        ? 'file needs another try.'
+        : 'files need another try.'}
     `;
   }
 }
@@ -544,6 +583,10 @@ async function uploadOneFile(
     0;
 
 
+  let retries =
+    0;
+
+
   while (
     offset < file.size
   ) {
@@ -562,46 +605,249 @@ async function uploadOneFile(
       );
 
 
-    await uploadChunk(
-      session.sessionUrl,
-      chunk,
-      offset,
-      end,
-      file.size,
-      index
-    );
+    try {
+
+      const result =
+        await uploadChunk(
+          session.sessionUrl,
+          chunk,
+          offset,
+          end,
+          file.size,
+          index
+        );
 
 
-    offset =
-      end;
+      if (
+        result.status === 200 ||
+        result.status === 201
+      ) {
+
+        fileStates[index].completed =
+          true;
 
 
-    const percent =
-      Math.round(
-        (
-          offset /
-          file.size
-        ) *
-        100
+        fileStates[index].failed =
+          false;
+
+
+        fileStates[index].percent =
+          100;
+
+
+        updateProgress(
+          index,
+          100,
+          '✓ Uploaded'
+        );
+
+
+        return;
+      }
+
+
+      if (
+        result.status === 308
+      ) {
+
+        const received =
+          getReceivedOffset(
+            result.rangeHeader
+          );
+
+
+        offset =
+          received !== null
+            ? received
+            : end;
+
+
+        retries =
+          0;
+
+
+        updateProgress(
+          index,
+          Math.min(
+            99,
+            Math.floor(
+              (
+                offset /
+                file.size
+              ) *
+              100
+            )
+          ),
+          'Uploading…'
+        );
+
+
+        continue;
+      }
+
+
+      throw new Error(
+        'Unexpected Google response: ' +
+        result.status
       );
 
 
-    updateProgress(
-      index,
-      percent,
-      percent === 100
-        ? '✓ Uploaded'
-        : 'Uploading…'
-    );
+    } catch (error) {
+
+      updateProgress(
+        index,
+        fileStates[index].percent,
+        'Checking upload…'
+      );
+
+
+      const status =
+        await queryUploadStatus(
+          session.sessionUrl,
+          file.size
+        );
+
+
+      if (
+        status &&
+        (
+          status.status === 200 ||
+          status.status === 201
+        )
+      ) {
+
+        fileStates[index].completed =
+          true;
+
+
+        fileStates[index].failed =
+          false;
+
+
+        fileStates[index].percent =
+          100;
+
+
+        updateProgress(
+          index,
+          100,
+          '✓ Uploaded'
+        );
+
+
+        return;
+      }
+
+
+      if (
+        status &&
+        status.status === 308
+      ) {
+
+        const received =
+          getReceivedOffset(
+            status.rangeHeader
+          );
+
+
+        if (
+          received !== null
+        ) {
+
+          offset =
+            received;
+
+
+          retries =
+            0;
+
+
+          updateProgress(
+            index,
+            Math.min(
+              99,
+              Math.floor(
+                (
+                  offset /
+                  file.size
+                ) *
+                100
+              )
+            ),
+            'Resuming…'
+          );
+
+
+          continue;
+        }
+      }
+
+
+      retries++;
+
+
+      if (
+        retries > MAX_RETRIES
+      ) {
+
+        throw error;
+      }
+
+
+      updateProgress(
+        index,
+        fileStates[index].percent,
+        'Connection interrupted — retrying…'
+      );
+
+
+      await wait(
+        Math.min(
+          8000,
+          1000 *
+          Math.pow(
+            2,
+            retries - 1
+          )
+        )
+      );
+    }
   }
 
 
-  fileStates[index].completed =
-    true;
+  const finalStatus =
+    await queryUploadStatus(
+      session.sessionUrl,
+      file.size
+    );
 
 
-  fileStates[index].percent =
-    100;
+  if (
+    finalStatus &&
+    (
+      finalStatus.status === 200 ||
+      finalStatus.status === 201
+    )
+  ) {
+
+    updateProgress(
+      index,
+      100,
+      '✓ Uploaded'
+    );
+
+
+    fileStates[index].completed =
+      true;
+
+
+    return;
+  }
+
+
+  throw new Error(
+    'Upload did not finish correctly.'
+  );
 }
 
 
@@ -620,12 +866,15 @@ function createUploadSession(
         Date.now() +
         '_' +
         Math.floor(
-          Math.random() * 100000
+          Math.random() *
+          100000
         );
 
 
       const script =
-        document.createElement('script');
+        document.createElement(
+          'script'
+        );
 
 
       const timeout =
@@ -633,6 +882,7 @@ function createUploadSession(
           function() {
 
             cleanup();
+
 
             reject(
               new Error(
@@ -647,22 +897,38 @@ function createUploadSession(
 
       function cleanup() {
 
-        clearTimeout(timeout);
+        clearTimeout(
+          timeout
+        );
 
-        delete window[callbackName];
 
-        if (script.parentNode) {
-          script.parentNode.removeChild(script);
+        delete window[
+          callbackName
+        ];
+
+
+        if (
+          script.parentNode
+        ) {
+
+          script.parentNode.removeChild(
+            script
+          );
         }
       }
 
 
-      window[callbackName] =
+      window[
+        callbackName
+      ] =
         function(result) {
 
           cleanup();
 
-          resolve(result);
+
+          resolve(
+            result
+          );
         };
 
 
@@ -683,7 +949,9 @@ function createUploadSession(
             'application/octet-stream',
 
           fileSize:
-            String(file.size),
+            String(
+              file.size
+            ),
 
           guestName:
             guestName || ''
@@ -701,6 +969,7 @@ function createUploadSession(
 
           cleanup();
 
+
           reject(
             new Error(
               'Could not contact upload backend.'
@@ -712,7 +981,6 @@ function createUploadSession(
       document.body.appendChild(
         script
       );
-
     }
   );
 }
@@ -773,7 +1041,7 @@ function uploadChunk(
           const percent =
             Math.min(
               99,
-              Math.round(
+              Math.floor(
                 (
                   currentBytes /
                   totalSize
@@ -794,30 +1062,16 @@ function uploadChunk(
       xhr.onload =
         function() {
 
-          /*
-           * Google resumable uploads return:
-           *
-           * 308 = chunk accepted, more expected
-           * 200/201 = upload complete
-           */
+          resolve({
 
-          if (
-            xhr.status === 308 ||
-            xhr.status === 200 ||
-            xhr.status === 201
-          ) {
+            status:
+              xhr.status,
 
-            resolve();
-
-          } else {
-
-            reject(
-              new Error(
-                'Google returned HTTP ' +
-                xhr.status
+            rangeHeader:
+              xhr.getResponseHeader(
+                'Range'
               )
-            );
-          }
+          });
         };
 
 
@@ -826,15 +1080,140 @@ function uploadChunk(
 
           reject(
             new Error(
-              'Network error while uploading.'
+              'Network response was interrupted.'
             )
           );
         };
 
 
-      xhr.send(chunk);
+      xhr.ontimeout =
+        function() {
 
+          reject(
+            new Error(
+              'Upload timed out.'
+            )
+          );
+        };
+
+
+      xhr.timeout =
+        120000;
+
+
+      xhr.send(
+        chunk
+      );
     }
+  );
+}
+
+
+
+function queryUploadStatus(
+  sessionUrl,
+  totalSize
+) {
+
+  return new Promise(
+    function(resolve) {
+
+
+      const xhr =
+        new XMLHttpRequest();
+
+
+      xhr.open(
+        'PUT',
+        sessionUrl,
+        true
+      );
+
+
+      xhr.setRequestHeader(
+        'Content-Range',
+        'bytes */' +
+        totalSize
+      );
+
+
+      xhr.onload =
+        function() {
+
+          resolve({
+
+            status:
+              xhr.status,
+
+            rangeHeader:
+              xhr.getResponseHeader(
+                'Range'
+              )
+          });
+        };
+
+
+      xhr.onerror =
+        function() {
+
+          resolve(
+            null
+          );
+        };
+
+
+      xhr.timeout =
+        30000;
+
+
+      xhr.ontimeout =
+        function() {
+
+          resolve(
+            null
+          );
+        };
+
+
+      xhr.send();
+    }
+  );
+}
+
+
+
+function getReceivedOffset(
+  rangeHeader
+) {
+
+  if (
+    !rangeHeader
+  ) {
+
+    return null;
+  }
+
+
+  const match =
+    rangeHeader.match(
+      /bytes=0-(\d+)/
+    );
+
+
+  if (
+    !match
+  ) {
+
+    return null;
+  }
+
+
+  return (
+    parseInt(
+      match[1],
+      10
+    ) +
+    1
   );
 }
 
@@ -879,14 +1258,18 @@ function updateProgress(
   }
 
 
-  if (percentElement) {
+  if (
+    percentElement
+  ) {
 
     percentElement.innerText =
       percent + '%';
   }
 
 
-  if (statusElement) {
+  if (
+    statusElement
+  ) {
 
     statusElement.innerText =
       status;
@@ -905,7 +1288,15 @@ function resetUploader() {
     [];
 
 
-  document.getElementById('files').value =
+  uploading =
+    false;
+
+
+  document.getElementById('photoFiles').value =
+    '';
+
+
+  document.getElementById('originalFiles').value =
     '';
 
 
@@ -919,13 +1310,22 @@ function resetUploader() {
 
   document.getElementById('overall').innerHTML =
     '';
+
+
+  document.getElementById('uploadButton').disabled =
+    false;
 }
 
 
 
-function formatBytes(bytes) {
+function formatBytes(
+  bytes
+) {
 
-  if (!bytes) {
+  if (
+    !bytes
+  ) {
+
     return '0 B';
   }
 
@@ -950,7 +1350,10 @@ function formatBytes(bytes) {
   return (
     (
       bytes /
-      Math.pow(1024, index)
+      Math.pow(
+        1024,
+        index
+      )
     ).toFixed(
       index >= 2
         ? 1
@@ -965,10 +1368,14 @@ function formatBytes(bytes) {
 
 
 
-function escapeHtml(text) {
+function escapeHtml(
+  text
+) {
 
   const div =
-    document.createElement('div');
+    document.createElement(
+      'div'
+    );
 
 
   div.textContent =
@@ -976,6 +1383,21 @@ function escapeHtml(text) {
 
 
   return div.innerHTML;
+}
+
+
+
+function wait(
+  milliseconds
+) {
+
+  return new Promise(
+    resolve =>
+      setTimeout(
+        resolve,
+        milliseconds
+      )
+  );
 }
 
 </script>
