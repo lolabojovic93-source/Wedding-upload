@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
   <meta charset="UTF-8">
 
   <meta
@@ -13,8 +12,8 @@
   <title>Lola & Santi</title>
 
 
+  <!-- Courier Prime -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
@@ -67,19 +66,16 @@
         var(--paper);
 
       background-image:
-
         linear-gradient(
-          rgba(247,243,233,.76),
-          rgba(247,243,233,.76)
+          rgba(247,243,233,.20),
+          rgba(247,243,233,.20)
         ),
+        url("paper.png");
 
-        url("Ohrid paper.png");
-
-      background-size:
-        cover;
+      background-size: cover;
 
       background-position:
-        center bottom;
+        center center;
 
       background-repeat:
         no-repeat;
@@ -92,24 +88,27 @@
     .wrap {
 
       width: 100%;
-
       max-width: 560px;
 
       margin: 0 auto;
     }
 
 
+
+    /* =========================
+       LANGUAGE SWITCHER
+       ========================= */
+
+
     .language-switcher {
 
       display: flex;
-
       justify-content: flex-end;
-
       align-items: center;
 
       gap: 16px;
 
-      margin-bottom: 28px;
+      margin-bottom: 26px;
     }
 
 
@@ -157,13 +156,19 @@
 
       text-decoration-thickness: 1px;
 
-      text-underline-offset: 4px;
+      text-underline-offset: 5px;
     }
+
+
+
+    /* =========================
+       BRAND
+       ========================= */
 
 
     .brand {
 
-      margin-bottom: 42px;
+      margin-bottom: 40px;
     }
 
 
@@ -171,9 +176,8 @@
 
       display: block;
 
-      width: 56px;
-
-      height: 56px;
+      width: 105px;
+      height: 105px;
 
       object-fit: contain;
 
@@ -185,48 +189,67 @@
     h1 {
 
       margin:
-        0 0 7px;
+        0 0 10px;
 
       font-family:
-        "Courier Prime",
-        monospace;
+        "Beautifully Delicious",
+        "Brush Script MT",
+        "Segoe Script",
+        cursive;
 
-      font-size: 22px;
+      font-size: 58px;
 
-      font-weight: 700;
+      line-height: 1;
 
-      letter-spacing: .06em;
+      font-weight: 400;
 
-      text-transform: uppercase;
+      letter-spacing: 0;
+
+      text-transform: none;
     }
 
 
     .date {
 
+      font-family:
+        "Courier Prime",
+        monospace;
+
       font-size: 11px;
 
-      letter-spacing: .22em;
+      letter-spacing: .25em;
     }
+
+
+
+    /* =========================
+       INTRO
+       ========================= */
 
 
     .intro {
 
-      max-width: 430px;
+      max-width: 450px;
 
       margin:
         0 auto 38px;
 
       font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Helvetica Neue",
-        Arial,
-        sans-serif;
+        "Courier Prime",
+        monospace;
 
-      font-size: 18px;
+      font-size: 17px;
 
-      line-height: 1.55;
+      line-height: 1.65;
+
+      letter-spacing: .01em;
     }
+
+
+
+    /* =========================
+       NAME
+       ========================= */
 
 
     input[type="text"] {
@@ -244,7 +267,7 @@
       outline: none;
 
       background:
-        rgba(255,255,255,.70);
+        rgba(255,255,255,.62);
 
       color: var(--ink);
 
@@ -263,7 +286,7 @@
     input[type="text"]:focus {
 
       background:
-        rgba(255,255,255,.9);
+        rgba(255,255,255,.86);
 
       border-color:
         var(--gold);
@@ -274,13 +297,19 @@
 
       color: var(--muted);
 
-      opacity: .78;
+      opacity: .75;
     }
 
 
     input[type="file"] {
       display: none;
     }
+
+
+
+    /* =========================
+       MAIN FILE PICKER
+       ========================= */
 
 
     .choose {
@@ -299,7 +328,7 @@
       border-radius: 3px;
 
       background:
-        rgba(255,255,255,.66);
+        rgba(255,255,255,.58);
 
       cursor: pointer;
 
@@ -320,7 +349,7 @@
     .choose:hover {
 
       background:
-        rgba(255,255,255,.9);
+        rgba(255,255,255,.82);
     }
 
 
@@ -329,6 +358,12 @@
       transform:
         translateY(1px);
     }
+
+
+
+    /* =========================
+       LARGE / LONG VIDEO
+       ========================= */
 
 
     .original-box {
@@ -362,7 +397,7 @@
 
       font-size: 12px;
 
-      line-height: 1.35;
+      line-height: 1.4;
     }
 
 
@@ -399,7 +434,7 @@
 
       font-size: 11px;
 
-      line-height: 1.55;
+      line-height: 1.6;
     }
 
 
@@ -419,7 +454,7 @@
 
       margin-top: 12px;
 
-      padding: 13px;
+      padding: 14px;
 
       border:
         1px solid var(--line);
@@ -427,7 +462,7 @@
       border-radius: 3px;
 
       background:
-        rgba(255,255,255,.40);
+        rgba(255,255,255,.38);
 
       color: var(--ink);
 
@@ -451,8 +486,14 @@
     .original-button:hover {
 
       background:
-        rgba(255,255,255,.75);
+        rgba(255,255,255,.7);
     }
+
+
+
+    /* =========================
+       SELECTED FILES
+       ========================= */
 
 
     .summary {
@@ -484,7 +525,7 @@
       border-radius: 3px;
 
       background:
-        rgba(255,255,255,.62);
+        rgba(255,255,255,.56);
 
       text-align: left;
     }
@@ -573,8 +614,7 @@
 
       height: 100%;
 
-      background:
-        var(--gold);
+      background: var(--gold);
 
       transition:
         width .15s ease;
@@ -587,6 +627,12 @@
 
       opacity: .7;
     }
+
+
+
+    /* =========================
+       SHARE
+       ========================= */
 
 
     #uploadButton {
@@ -615,7 +661,7 @@
 
       font-weight: 700;
 
-      letter-spacing: .08em;
+      letter-spacing: .09em;
 
       text-transform: uppercase;
 
@@ -645,6 +691,12 @@
     }
 
 
+
+    /* =========================
+       STATUS / SUCCESS
+       ========================= */
+
+
     #overall {
 
       margin-top: 24px;
@@ -667,10 +719,6 @@
 
       color: var(--gold);
 
-      font-family:
-        Georgia,
-        serif;
-
       font-size: 31px;
     }
 
@@ -689,7 +737,7 @@
       border-radius: 3px;
 
       background:
-        rgba(255,255,255,.32);
+        rgba(255,255,255,.35);
 
       color: var(--ink);
 
@@ -705,22 +753,10 @@
     }
 
 
-    @media (min-width: 700px) {
 
-      body {
-        padding-top: 30px;
-      }
-
-
-      .brand {
-        margin-bottom: 38px;
-      }
-
-
-      .intro {
-        margin-bottom: 34px;
-      }
-    }
+    /* =========================
+       MOBILE
+       ========================= */
 
 
     @media (max-width: 480px) {
@@ -728,35 +764,33 @@
       body {
 
         padding:
-          20px
+          18px
           17px
           55px;
 
         background-attachment:
           scroll;
-
-        background-size:
-          auto 100%;
       }
 
 
       .language-switcher {
 
-        margin-bottom: 23px;
+        margin-bottom: 20px;
       }
 
 
       .sun-mark {
 
-        width: 51px;
+        width: 88px;
+        height: 88px;
 
-        height: 51px;
+        margin-bottom: 10px;
       }
 
 
       h1 {
 
-        font-size: 19px;
+        font-size: 48px;
       }
 
 
@@ -768,9 +802,11 @@
 
       .intro {
 
-        margin-bottom: 31px;
+        margin-bottom: 30px;
 
-        font-size: 17px;
+        font-size: 15px;
+
+        line-height: 1.65;
       }
 
 
@@ -785,6 +821,15 @@
 
         margin-top: 20px;
       }
+    }
+
+
+    @media (min-width: 700px) {
+
+      body {
+        padding-top: 28px;
+      }
+
     }
 
   </style>
@@ -861,9 +906,7 @@
     id="chooseLabel"
     class="choose">
 
-    <span id="chooseText">
-    </span>
-
+    <span id="chooseText"></span>
 
     <input
       id="photoFiles"
@@ -892,7 +935,6 @@
 
         <span id="originalButtonText">
         </span>
-
 
         <input
           id="originalFiles"
@@ -934,7 +976,6 @@
 
 <script>
 
-
 const BACKEND_URL =
   'https://script.google.com/macros/s/AKfycbx2vdi2nqGoyrrNToJhu0JrElylkWVM1knWDGrYA7LbFjWodyJDFM3S17uxhsq5Nv8ffg/exec';
 
@@ -948,7 +989,6 @@ const MAX_RETRIES =
 
 
 const translations = {
-
 
   en: {
 
@@ -1184,28 +1224,23 @@ let currentLanguage =
   localStorage.getItem('weddingLanguage') || 'en';
 
 
-let selectedFiles =
-  [];
+let selectedFiles = [];
 
+let fileStates = [];
 
-let fileStates =
-  [];
+let uploading = false;
 
-
-let uploading =
-  false;
 
 
 function t(key) {
-
   return translations[currentLanguage][key];
 }
 
 
+
 function setLanguage(lang) {
 
-  currentLanguage =
-    lang;
+  currentLanguage = lang;
 
 
   localStorage.setItem(
@@ -1220,73 +1255,57 @@ function setLanguage(lang) {
 
   document
     .querySelectorAll('.lang-button')
-    .forEach(
-      button => {
+    .forEach(button => {
 
-        button.classList.toggle(
-          'active',
-          button.dataset.lang === lang
-        );
+      button.classList.toggle(
+        'active',
+        button.dataset.lang === lang
+      );
 
-      }
-    );
+    });
 
 
   renderLanguage();
 }
 
 
+
 function renderLanguage() {
 
-  document
-    .getElementById('intro')
-    .innerHTML =
-      t('intro');
+  document.getElementById('intro').innerHTML =
+    t('intro');
 
 
-  document
-    .getElementById('guestName')
-    .placeholder =
-      t('name');
+  document.getElementById('guestName').placeholder =
+    t('name');
 
 
-  document
-    .getElementById('chooseText')
-    .innerText =
-      t('choose');
+  document.getElementById('chooseText').innerText =
+    t('choose');
 
 
-  document
-    .getElementById('originalTitle')
-    .innerText =
-      t('originalTitle');
+  document.getElementById('originalTitle').innerText =
+    t('originalTitle');
 
 
-  document
-    .getElementById('originalExplanation')
-    .innerHTML =
-      t('originalExplanation');
+  document.getElementById('originalExplanation').innerHTML =
+    t('originalExplanation');
 
 
-  document
-    .getElementById('originalButtonText')
-    .innerText =
-      t('originalButton');
+  document.getElementById('originalButtonText').innerText =
+    t('originalButton');
 
 
-  document
-    .getElementById('uploadButton')
-    .innerText =
-      t('share');
+  document.getElementById('uploadButton').innerText =
+    t('share');
 
 
   if (selectedFiles.length) {
-
     updateSummary();
-
     renderFileList();
   }
 }
+
 
 
 function filesSelected(fileList) {
@@ -1296,23 +1315,21 @@ function filesSelected(fileList) {
 
 
   fileStates =
-    selectedFiles.map(
-      () => ({
+    selectedFiles.map(() => ({
 
-        percent: 0,
+      percent: 0,
 
-        statusKey: 'ready',
+      statusKey: 'ready',
 
-        completed: false,
+      completed: false,
 
-        failed: false,
+      failed: false,
 
-        sessionUrl: null,
+      sessionUrl: null,
 
-        fileId: null
+      fileId: null
 
-      })
-    );
+    }));
 
 
   updateSummary();
@@ -1320,21 +1337,18 @@ function filesSelected(fileList) {
   renderFileList();
 
 
-  document
-    .getElementById('overall')
-    .innerHTML =
-      '';
+  document.getElementById('overall').innerHTML =
+    '';
 }
+
 
 
 function updateSummary() {
 
   if (!selectedFiles.length) {
 
-    document
-      .getElementById('summary')
-      .innerText =
-        '';
+    document.getElementById('summary').innerText =
+      '';
 
     return;
   }
@@ -1342,42 +1356,38 @@ function updateSummary() {
 
   const totalBytes =
     selectedFiles.reduce(
-      (sum, file) =>
-        sum + file.size,
+      (sum, file) => sum + file.size,
       0
     );
 
 
-  document
-    .getElementById('summary')
-    .innerText =
+  document.getElementById('summary').innerText =
 
-      selectedFiles.length +
+    selectedFiles.length +
 
-      ' ' +
+    ' ' +
 
-      (
-        selectedFiles.length === 1
-          ? t('oneFile')
-          : t('manyFiles')
-      )
+    (
+      selectedFiles.length === 1
+        ? t('oneFile')
+        : t('manyFiles')
+    )
 
-      +
+    +
 
-      ' · '
+    ' · '
 
-      +
+    +
 
-      formatBytes(totalBytes);
+    formatBytes(totalBytes);
 }
+
 
 
 function renderFileList() {
 
   const container =
-    document.getElementById(
-      'fileList'
-    );
+    document.getElementById('fileList');
 
 
   container.innerHTML =
@@ -1385,17 +1395,10 @@ function renderFileList() {
 
 
   selectedFiles.forEach(
-
-    function(
-      file,
-      index
-    ) {
-
+    function(file, index) {
 
       const card =
-        document.createElement(
-          'div'
-        );
+        document.createElement('div');
 
 
       card.className =
@@ -1403,15 +1406,9 @@ function renderFileList() {
 
 
       const statusText =
-
         fileStates[index].completed
-
           ? t('uploaded')
-
-          : t(
-              fileStates[index].statusKey ||
-              'ready'
-            );
+          : t(fileStates[index].statusKey || 'ready');
 
 
       card.innerHTML = `
@@ -1454,13 +1451,12 @@ function renderFileList() {
       `;
 
 
-      container.appendChild(
-        card
-      );
+      container.appendChild(card);
 
     }
   );
 }
+
 
 
 async function startUpload() {
@@ -1472,33 +1468,25 @@ async function startUpload() {
 
   if (!selectedFiles.length) {
 
-    document
-      .getElementById('overall')
-      .innerText =
-        t('chooseFirst');
+    document.getElementById('overall').innerText =
+      t('chooseFirst');
 
     return;
   }
 
 
-  uploading =
+  uploading = true;
+
+
+  document.getElementById('uploadButton').disabled =
     true;
 
 
-  document
-    .getElementById('uploadButton')
-    .disabled =
-      true;
-
-
   const guestName =
-    document
-      .getElementById('guestName')
-      .value;
+    document.getElementById('guestName').value;
 
 
-  let completed =
-    0;
+  let completed = 0;
 
 
   for (
@@ -1520,9 +1508,7 @@ async function startUpload() {
 
     } catch (error) {
 
-      console.error(
-        error
-      );
+      console.error(error);
 
 
       fileStates[index].failed =
@@ -1537,84 +1523,70 @@ async function startUpload() {
     }
 
 
-    document
-      .getElementById('overall')
-      .innerText =
+    document.getElementById('overall').innerText =
 
-        completed +
+      completed +
 
-        ' / ' +
+      ' / ' +
 
-        selectedFiles.length +
+      selectedFiles.length +
 
-        ' ' +
+      ' ' +
 
-        t('uploadedCount');
+      t('uploadedCount');
   }
 
 
-  uploading =
+  uploading = false;
+
+
+  document.getElementById('uploadButton').disabled =
     false;
-
-
-  document
-    .getElementById('uploadButton')
-    .disabled =
-      false;
 
 
   const failed =
     fileStates.filter(
-      state =>
-        state.failed
+      state => state.failed
     ).length;
 
 
   if (!failed) {
 
+    document.getElementById('overall').innerHTML = `
 
-    document
-      .getElementById('overall')
-      .innerHTML = `
+      <span class="success-symbol">♡</span>
 
-        <span class="success-symbol">
-          ♡
-        </span>
+      ${t('success')}
 
-        ${t('success')}
+      <button
+        class="secondary"
+        onclick="resetUploader()">
 
-        <button
-          class="secondary"
-          onclick="resetUploader()">
+        ${t('uploadMore')}
 
-          ${t('uploadMore')}
-
-        </button>
-      `;
-
+      </button>
+    `;
 
   } else {
 
+    document.getElementById('overall').innerHTML = `
 
-    document
-      .getElementById('overall')
-      .innerHTML = `
+      ${completed} / ${selectedFiles.length}
+      ${t('uploadedCount')}
 
-        ${completed} / ${selectedFiles.length}
-        ${t('uploadedCount')}
+      <br><br>
 
-        <br><br>
+      ${failed}
 
-        ${failed}
-
-        ${
-          failed === 1
-            ? t('failedOne')
-            : t('failedMany')
-        }
-      `;
+      ${
+        failed === 1
+          ? t('failedOne')
+          : t('failedMany')
+      }
+    `;
   }
 }
+
 
 
 async function uploadOneFile(
@@ -1645,12 +1617,8 @@ async function uploadOneFile(
   ) {
 
     throw new Error(
-
-      session &&
-      session.error
-
+      session && session.error
         ? session.error
-
         : 'Could not prepare upload.'
     );
   }
@@ -1664,19 +1632,12 @@ async function uploadOneFile(
     session.fileId;
 
 
-  let offset =
-    0;
+  let offset = 0;
+
+  let retries = 0;
 
 
-  let retries =
-    0;
-
-
-  while (
-    offset <
-    file.size
-  ) {
-
+  while (offset < file.size) {
 
     const end =
       Math.min(
@@ -1694,7 +1655,6 @@ async function uploadOneFile(
 
     try {
 
-
       const result =
         await uploadChunk(
           session.sessionUrl,
@@ -1711,18 +1671,13 @@ async function uploadOneFile(
         result.status === 201
       ) {
 
-        markComplete(
-          index
-        );
+        markComplete(index);
 
         return;
       }
 
 
-      if (
-        result.status === 308
-      ) {
-
+      if (result.status === 308) {
 
         const received =
           getReceivedOffset(
@@ -1731,16 +1686,12 @@ async function uploadOneFile(
 
 
         offset =
-
           received !== null
-
             ? received
-
             : end;
 
 
-        retries =
-          0;
+        retries = 0;
 
 
         updateProgress(
@@ -1748,11 +1699,7 @@ async function uploadOneFile(
           Math.min(
             99,
             Math.floor(
-              (
-                offset /
-                file.size
-              ) *
-              100
+              (offset / file.size) * 100
             )
           ),
           'uploading'
@@ -1770,9 +1717,7 @@ async function uploadOneFile(
         )
       ) {
 
-        markComplete(
-          index
-        );
+        markComplete(index);
 
         return;
       }
@@ -1783,17 +1728,13 @@ async function uploadOneFile(
         result.status
       );
 
-
     } catch (error) {
-
 
       if (
         fileStates[index].percent >= 95
       ) {
 
-        updateFinalizing(
-          index
-        );
+        updateFinalizing(index);
 
       } else {
 
@@ -1812,9 +1753,7 @@ async function uploadOneFile(
         )
       ) {
 
-        markComplete(
-          index
-        );
+        markComplete(index);
 
         return;
       }
@@ -1832,15 +1771,12 @@ async function uploadOneFile(
         status.success
       ) {
 
-
         if (
           status.status === 200 ||
           status.status === 201
         ) {
 
-          updateFinalizing(
-            index
-          );
+          updateFinalizing(index);
 
 
           if (
@@ -1850,19 +1786,14 @@ async function uploadOneFile(
             )
           ) {
 
-            markComplete(
-              index
-            );
+            markComplete(index);
 
             return;
           }
         }
 
 
-        if (
-          status.status === 308
-        ) {
-
+        if (status.status === 308) {
 
           const received =
             getReceivedOffset(
@@ -1870,17 +1801,13 @@ async function uploadOneFile(
             );
 
 
-          if (
-            received !== null
-          ) {
-
+          if (received !== null) {
 
             offset =
               received;
 
 
-            retries =
-              0;
+            retries = 0;
 
 
             updateProgress(
@@ -1888,11 +1815,7 @@ async function uploadOneFile(
               Math.min(
                 99,
                 Math.floor(
-                  (
-                    offset /
-                    file.size
-                  ) *
-                  100
+                  (offset / file.size) * 100
                 )
               ),
               'resuming'
@@ -1908,15 +1831,9 @@ async function uploadOneFile(
       retries++;
 
 
-      if (
-        retries >
-        MAX_RETRIES
-      ) {
+      if (retries > MAX_RETRIES) {
 
-
-        updateFinalizing(
-          index
-        );
+        updateFinalizing(index);
 
 
         if (
@@ -1926,9 +1843,7 @@ async function uploadOneFile(
           )
         ) {
 
-          markComplete(
-            index
-          );
+          markComplete(index);
 
           return;
         }
@@ -1959,9 +1874,7 @@ async function uploadOneFile(
   }
 
 
-  updateFinalizing(
-    index
-  );
+  updateFinalizing(index);
 
 
   const confirmed =
@@ -1971,13 +1884,9 @@ async function uploadOneFile(
     );
 
 
-  if (
-    confirmed
-  ) {
+  if (confirmed) {
 
-    markComplete(
-      index
-    );
+    markComplete(index);
 
     return;
   }
@@ -1989,9 +1898,8 @@ async function uploadOneFile(
 }
 
 
-function markComplete(
-  index
-) {
+
+function markComplete(index) {
 
   fileStates[index].completed =
     true;
@@ -2017,6 +1925,7 @@ function markComplete(
 }
 
 
+
 async function waitForDriveFile(
   fileId,
   expectedSize
@@ -2028,7 +1937,6 @@ async function waitForDriveFile(
     attempt++
   ) {
 
-
     const complete =
       await verifyCompleteFile(
         fileId,
@@ -2036,22 +1944,18 @@ async function waitForDriveFile(
       );
 
 
-    if (
-      complete
-    ) {
-
+    if (complete) {
       return true;
     }
 
 
-    await wait(
-      1500
-    );
+    await wait(1500);
   }
 
 
   return false;
 }
+
 
 
 async function verifyCompleteFile(
@@ -2060,7 +1964,6 @@ async function verifyCompleteFile(
 ) {
 
   try {
-
 
     const result =
       await callBackend({
@@ -2072,9 +1975,7 @@ async function verifyCompleteFile(
           fileId,
 
         expectedSize:
-          String(
-            expectedSize
-          )
+          String(expectedSize)
 
       });
 
@@ -2085,11 +1986,7 @@ async function verifyCompleteFile(
       result.complete
     );
 
-
-  } catch (
-    error
-  ) {
-
+  } catch (error) {
 
     console.warn(
       'Could not verify file yet:',
@@ -2102,13 +1999,13 @@ async function verifyCompleteFile(
 }
 
 
+
 async function getServerUploadStatus(
   sessionUrl,
   totalSize
 ) {
 
   try {
-
 
     return await callBackend({
 
@@ -2119,17 +2016,11 @@ async function getServerUploadStatus(
         sessionUrl,
 
       totalSize:
-        String(
-          totalSize
-        )
+        String(totalSize)
 
     });
 
-
-  } catch (
-    error
-  ) {
-
+  } catch (error) {
 
     console.warn(
       'Could not query upload status:',
@@ -2140,6 +2031,7 @@ async function getServerUploadStatus(
     return null;
   }
 }
+
 
 
 function createUploadSession(
@@ -2160,9 +2052,7 @@ function createUploadSession(
       'application/octet-stream',
 
     fileSize:
-      String(
-        file.size
-      ),
+      String(file.size),
 
     guestName:
       guestName || ''
@@ -2171,17 +2061,11 @@ function createUploadSession(
 }
 
 
-function callBackend(
-  parameters
-) {
+
+function callBackend(parameters) {
 
   return new Promise(
-
-    function(
-      resolve,
-      reject
-    ) {
-
+    function(resolve, reject) {
 
       const callbackName =
 
@@ -2205,9 +2089,7 @@ function callBackend(
 
       const timeout =
         setTimeout(
-
           function() {
-
 
             cleanup();
 
@@ -2219,17 +2101,13 @@ function callBackend(
             );
 
           },
-
           30000
         );
 
 
       function cleanup() {
 
-
-        clearTimeout(
-          timeout
-        );
+        clearTimeout(timeout);
 
 
         delete window[
@@ -2237,33 +2115,21 @@ function callBackend(
         ];
 
 
-        if (
-          script.parentNode
-        ) {
+        if (script.parentNode) {
 
-          script.parentNode
-            .removeChild(
-              script
-            );
+          script.parentNode.removeChild(
+            script
+          );
         }
       }
 
 
-      window[
-        callbackName
-      ] =
-
-        function(
-          result
-        ) {
-
+      window[callbackName] =
+        function(result) {
 
           cleanup();
 
-
-          resolve(
-            result
-          );
+          resolve(result);
         };
 
 
@@ -2288,12 +2154,9 @@ function callBackend(
 
 
       script.onerror =
-
         function() {
 
-
           cleanup();
-
 
           reject(
             new Error(
@@ -2303,14 +2166,14 @@ function callBackend(
         };
 
 
-      document.body
-        .appendChild(
-          script
-        );
+      document.body.appendChild(
+        script
+      );
 
     }
   );
 }
+
 
 
 function uploadChunk(
@@ -2323,12 +2186,7 @@ function uploadChunk(
 ) {
 
   return new Promise(
-
-    function(
-      resolve,
-      reject
-    ) {
-
+    function(resolve, reject) {
 
       const xhr =
         new XMLHttpRequest();
@@ -2342,7 +2200,6 @@ function uploadChunk(
 
 
       xhr.setRequestHeader(
-
         'Content-Range',
 
         'bytes ' +
@@ -2360,16 +2217,9 @@ function uploadChunk(
 
 
       xhr.upload.onprogress =
+        function(event) {
 
-        function(
-          event
-        ) {
-
-
-          if (
-            !event.lengthComputable
-          ) {
-
+          if (!event.lengthComputable) {
             return;
           }
 
@@ -2401,9 +2251,7 @@ function uploadChunk(
 
 
       xhr.onload =
-
         function() {
-
 
           resolve({
 
@@ -2420,9 +2268,7 @@ function uploadChunk(
 
 
       xhr.onerror =
-
         function() {
-
 
           reject(
             new Error(
@@ -2433,9 +2279,7 @@ function uploadChunk(
 
 
       xhr.ontimeout =
-
         function() {
-
 
           reject(
             new Error(
@@ -2449,56 +2293,44 @@ function uploadChunk(
         120000;
 
 
-      xhr.send(
-        chunk
-      );
+      xhr.send(chunk);
 
     }
   );
 }
 
 
+
 function getReceivedOffset(
   rangeHeader
 ) {
 
-  if (
-    !rangeHeader
-  ) {
-
+  if (!rangeHeader) {
     return null;
   }
 
 
   const match =
-    String(
-      rangeHeader
-    )
+    String(rangeHeader)
       .match(
         /bytes=0-(\d+)/
       );
 
 
-  if (
-    !match
-  ) {
-
+  if (!match) {
     return null;
   }
 
 
   return (
-
     parseInt(
       match[1],
       10
-    )
-
-    +
-
+    ) +
     1
   );
 }
+
 
 
 function updateProgress(
@@ -2533,27 +2365,21 @@ function updateProgress(
     );
 
 
-  if (
-    bar
-  ) {
+  if (bar) {
 
     bar.style.width =
       percent + '%';
   }
 
 
-  if (
-    percentElement
-  ) {
+  if (percentElement) {
 
     percentElement.innerText =
       percent + '%';
   }
 
 
-  if (
-    statusElement
-  ) {
+  if (statusElement) {
 
     statusElement.innerText =
       t(statusKey);
@@ -2561,9 +2387,8 @@ function updateProgress(
 }
 
 
-function updateFinalizing(
-  index
-) {
+
+function updateFinalizing(index) {
 
   fileStates[index].percent =
     99;
@@ -2591,27 +2416,19 @@ function updateFinalizing(
     );
 
 
-  if (
-    bar
-  ) {
-
+  if (bar) {
     bar.style.width =
       '100%';
   }
 
 
-  if (
-    percentElement
-  ) {
-
+  if (percentElement) {
     percentElement.innerText =
       '';
   }
 
 
-  if (
-    statusElement
-  ) {
+  if (statusElement) {
 
     statusElement.innerHTML =
 
@@ -2624,6 +2441,7 @@ function updateFinalizing(
       '</span>';
   }
 }
+
 
 
 function resetUploader() {
@@ -2640,105 +2458,63 @@ function resetUploader() {
     false;
 
 
-  document
-    .getElementById(
-      'photoFiles'
-    )
-    .value =
-      '';
+  document.getElementById('photoFiles').value =
+    '';
 
 
-  document
-    .getElementById(
-      'originalFiles'
-    )
-    .value =
-      '';
+  document.getElementById('originalFiles').value =
+    '';
 
 
-  document
-    .getElementById(
-      'summary'
-    )
-    .innerText =
-      '';
+  document.getElementById('summary').innerText =
+    '';
 
 
-  document
-    .getElementById(
-      'fileList'
-    )
-    .innerHTML =
-      '';
+  document.getElementById('fileList').innerHTML =
+    '';
 
 
-  document
-    .getElementById(
-      'overall'
-    )
-    .innerHTML =
-      '';
+  document.getElementById('overall').innerHTML =
+    '';
 
 
-  document
-    .getElementById(
-      'uploadButton'
-    )
-    .disabled =
-      false;
+  document.getElementById('uploadButton').disabled =
+    false;
 }
 
 
-function formatBytes(
-  bytes
-) {
 
-  if (
-    !bytes
-  ) {
+function formatBytes(bytes) {
 
+  if (!bytes) {
     return '0 B';
   }
 
 
   const units = [
-
     'B',
     'KB',
     'MB',
     'GB',
     'TB'
-
   ];
 
 
   const index =
     Math.floor(
-
-      Math.log(
-        bytes
-      )
-
-      /
-
-      Math.log(
-        1024
-      )
-
+      Math.log(bytes) /
+      Math.log(1024)
     );
 
 
   return (
 
     (
-
       bytes /
-
       Math.pow(
         1024,
         index
       )
-
     )
 
     .toFixed(
@@ -2758,9 +2534,8 @@ function formatBytes(
 }
 
 
-function escapeHtml(
-  text
-) {
+
+function escapeHtml(text) {
 
   const div =
     document.createElement(
@@ -2776,9 +2551,8 @@ function escapeHtml(
 }
 
 
-function wait(
-  milliseconds
-) {
+
+function wait(milliseconds) {
 
   return new Promise(
 
@@ -2792,14 +2566,12 @@ function wait(
 }
 
 
+
 setLanguage(
   currentLanguage
 );
 
-
 </script>
 
-
 </body>
-
 </html>
