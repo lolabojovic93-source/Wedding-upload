@@ -2,12 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1"
   >
-
   <title>Lola & Santi</title>
 
   <style>
@@ -19,7 +17,6 @@
       margin: 0;
       min-height: 100vh;
       padding: 28px 20px 60px;
-
       background: #f7f4ee;
       color: #292821;
 
@@ -49,16 +46,12 @@
     .lang-button {
       width: auto;
       padding: 7px 9px;
-
       border: 0;
       border-radius: 7px;
-
       background: transparent;
       color: #292821;
-
       font-size: 11px;
       letter-spacing: 1px;
-
       cursor: pointer;
       opacity: .45;
     }
@@ -70,7 +63,6 @@
 
     h1 {
       margin: 5px 0 8px;
-
       font-family: Georgia, serif;
       font-size: 42px;
       font-weight: normal;
@@ -78,14 +70,12 @@
 
     .date {
       margin-bottom: 43px;
-
       font-size: 12px;
       letter-spacing: 3px;
     }
 
     .intro {
       margin-bottom: 32px;
-
       font-size: 18px;
       line-height: 1.55;
     }
@@ -93,12 +83,9 @@
     input[type="text"] {
       width: 100%;
       padding: 17px;
-
       border: 1px solid #bbb;
       border-radius: 12px;
-
       background: white;
-
       color: #292821;
       font-size: 16px;
     }
@@ -109,35 +96,27 @@
 
     .choose {
       display: block;
-
       width: 100%;
       margin-top: 14px;
       padding: 19px;
-
       border: 1px solid #292821;
       border-radius: 12px;
-
       background: white;
-
       cursor: pointer;
       font-size: 17px;
     }
 
     .original-box {
       margin-top: 14px;
-
       border-top: 1px solid rgba(41,40,33,.14);
       border-bottom: 1px solid rgba(41,40,33,.14);
-
       text-align: left;
     }
 
     .original-box summary {
       padding: 15px 2px;
-
       cursor: pointer;
       list-style: none;
-
       font-size: 13px;
       opacity: .68;
     }
@@ -157,34 +136,26 @@
 
     .original-content {
       padding: 0 0 17px;
-
       font-size: 12px;
       line-height: 1.55;
-
       opacity: .72;
     }
 
     .original-button {
       display: block;
-
       width: 100%;
       margin-top: 12px;
       padding: 14px;
-
       border: 1px solid rgba(41,40,33,.45);
       border-radius: 10px;
-
       background: transparent;
-
       text-align: center;
       font-size: 14px;
-
       cursor: pointer;
     }
 
     .summary {
       margin: 18px 0;
-
       font-size: 14px;
       opacity: .7;
     }
@@ -192,10 +163,8 @@
     .file-card {
       margin: 10px 0;
       padding: 14px;
-
       border-radius: 12px;
       background: rgba(255,255,255,.75);
-
       text-align: left;
     }
 
@@ -207,17 +176,14 @@
 
     .file-name {
       min-width: 0;
-
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-
       font-size: 14px;
     }
 
     .file-size {
       flex-shrink: 0;
-
       font-size: 12px;
       opacity: .6;
     }
@@ -226,9 +192,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-
       margin-top: 8px;
-
       font-size: 12px;
       opacity: .7;
     }
@@ -236,25 +200,20 @@
     .progress {
       height: 5px;
       margin-top: 8px;
-
       overflow: hidden;
       border-radius: 999px;
-
       background: rgba(41,40,33,.12);
     }
 
     .progress-bar {
       width: 0%;
       height: 100%;
-
       background: #292821;
-
       transition: width .15s ease;
     }
 
     .saving-note {
       margin-left: 5px;
-
       font-size: 11px;
       opacity: .65;
     }
@@ -263,13 +222,10 @@
       width: 100%;
       margin-top: 6px;
       padding: 19px;
-
       border: 0;
       border-radius: 12px;
-
       background: #292821;
       color: white;
-
       cursor: pointer;
       font-size: 17px;
     }
@@ -285,9 +241,7 @@
 
     .success-symbol {
       display: block;
-
       margin-bottom: 7px;
-
       font-family: Georgia, serif;
       font-size: 27px;
     }
@@ -296,19 +250,21 @@
       width: 100%;
       margin-top: 18px;
       padding: 15px;
-
       border: 1px solid #292821;
       border-radius: 12px;
-
       background: transparent;
       color: #292821;
-
       cursor: pointer;
       font-size: 15px;
     }
+
+    @media (min-width: 700px) {
+      .date {
+        margin-bottom: 36px;
+      }
+    }
   </style>
 </head>
-
 
 <body>
 
@@ -468,7 +424,7 @@ const translations = {
       "Upload original from Files",
 
     share:
-      "Share selected files",
+      "Share",
 
     ready:
       "Ready",
@@ -526,7 +482,7 @@ const translations = {
   es: {
 
     intro:
-      "Viste momentos que nosotros no vimos.<br>Compártelos con nosotros. ♡",
+      "Viste momentos que nosotros nos perdimos.<br>Compártelos con nosotros. ♡",
 
     name:
       "Tu nombre (opcional)",
@@ -538,13 +494,13 @@ const translations = {
       "¿Quieres enviar el archivo original?",
 
     originalExplanation:
-      "En iPhone, Fotos puede preparar una versión más pequeña de los vídeos grandes. Para enviar el archivo 4K original: en Fotos toca <strong>Compartir → Guardar en Archivos</strong> y después selecciónalo aquí.",
+      "En iPhone, Fotos puede preparar una versión más pequeña de los vídeos grandes. Para compartir el archivo 4K original: en Fotos toca <strong>Compartir → Guardar en Archivos</strong> y después selecciónalo aquí.",
 
     originalButton:
       "Subir original desde Archivos",
 
     share:
-      "Compartir archivos",
+      "Compartir",
 
     ready:
       "Listo",
@@ -605,7 +561,7 @@ const translations = {
       "Vie vidovte momenti shto nie ne gi vidovme.<br>Spodelete gi so nas. ♡",
 
     name:
-      "Vasheto ime (opcionalno)",
+      "Vashe ime (opcionalno)",
 
     choose:
       "📷 Izberete fotografii i videa",
@@ -620,7 +576,7 @@ const translations = {
       "Prikachi original od Files",
 
     share:
-      "Spodeli gi izbranite fajlovi",
+      "Spodeli",
 
     ready:
       "Podgotveno",
@@ -665,7 +621,7 @@ const translations = {
       "Se e bezbedno zachuvano kaj nas.",
 
     uploadMore:
-      "Prikachi ushте",
+      "Prikachi ushte",
 
     failedOne:
       "fajl treba da se proba povtorno.",
@@ -699,10 +655,12 @@ function setLanguage(lang) {
 
   currentLanguage = lang;
 
+
   localStorage.setItem(
     'weddingLanguage',
     lang
   );
+
 
   document.documentElement.lang =
     lang;
@@ -790,6 +748,7 @@ function filesSelected(fileList) {
   updateSummary();
 
   renderFileList();
+
 
   document.getElementById('overall').innerHTML =
     '';
@@ -931,6 +890,7 @@ async function startUpload() {
 
   uploading = true;
 
+
   document.getElementById('uploadButton').disabled =
     true;
 
@@ -956,14 +916,17 @@ async function startUpload() {
         guestName
       );
 
+
       completed++;
 
     } catch (error) {
 
       console.error(error);
 
+
       fileStates[index].failed =
         true;
+
 
       updateProgress(
         index,
@@ -988,6 +951,7 @@ async function startUpload() {
 
 
   uploading = false;
+
 
   document.getElementById('uploadButton').disabled =
     false;
@@ -1541,6 +1505,7 @@ function callBackend(parameters) {
 
             cleanup();
 
+
             reject(
               new Error(
                 'Backend did not respond.'
@@ -1576,6 +1541,7 @@ function callBackend(parameters) {
 
           cleanup();
 
+
           resolve(result);
         };
 
@@ -1604,6 +1570,7 @@ function callBackend(parameters) {
         function() {
 
           cleanup();
+
 
           reject(
             new Error(
@@ -1813,12 +1780,14 @@ function updateProgress(
 
 
   if (bar) {
+
     bar.style.width =
       percent + '%';
   }
 
 
   if (percentElement) {
+
     percentElement.innerText =
       percent + '%';
   }
@@ -1862,12 +1831,14 @@ function updateFinalizing(index) {
 
 
   if (bar) {
+
     bar.style.width =
       '100%';
   }
 
 
   if (percentElement) {
+
     percentElement.innerText =
       '';
   }
