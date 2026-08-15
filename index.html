@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
 
@@ -10,14 +11,16 @@
 
   <title>Lola & Santi</title>
 
-  <!-- FONTS -->
+
+  <!-- Courier Prime -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Italianno&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap"
     rel="stylesheet"
   >
+
 
   <style>
 
@@ -76,16 +79,16 @@
     }
 
 
-    /* -------------------------
-       LANGUAGE SWITCHER
-    ------------------------- */
+    /* =========================
+       LANGUAGE
+       ========================= */
 
     .language-switcher {
       display: flex;
       justify-content: flex-end;
       gap: 5px;
 
-      margin-bottom: 42px;
+      margin-bottom: 38px;
     }
 
 
@@ -127,58 +130,51 @@
     }
 
 
-    /* -------------------------
-       HEADER
-    ------------------------- */
+    /* =========================
+       BRAND
+       ========================= */
 
     .sun {
       display: block;
 
-      width: 92px;
+      width: 96px;
       height: auto;
 
       margin:
         0 auto
-        20px;
+        18px;
     }
 
 
-    h1 {
+    .logo-title {
+      display: block;
+
+      width: min(82%, 430px);
+      height: auto;
+
       margin:
-        0
-        0
-        10px;
-
-      font-family:
-        "Italianno",
-        cursive;
-
-      font-size: 68px;
-
-      line-height: .95;
-
-      font-weight: 400;
-
-      letter-spacing: 0;
-
-      text-transform: none;
+        0 auto
+        15px;
     }
 
 
     .date {
       margin-bottom: 48px;
 
+      font-family:
+        "Courier Prime",
+        monospace;
+
       font-size: 12px;
+      font-weight: 700;
 
       letter-spacing: 4px;
-
-      font-weight: 700;
     }
 
 
-    /* -------------------------
+    /* =========================
        INTRO
-    ------------------------- */
+       ========================= */
 
     .intro {
       margin-bottom: 38px;
@@ -194,9 +190,9 @@
     }
 
 
-    /* -------------------------
-       FORM
-    ------------------------- */
+    /* =========================
+       NAME
+       ========================= */
 
     input[type="text"] {
       width: 100%;
@@ -244,6 +240,10 @@
     }
 
 
+    /* =========================
+       MAIN PICKER
+       ========================= */
+
     .choose {
       display: block;
 
@@ -251,8 +251,7 @@
 
       margin-top: 14px;
 
-      padding:
-        19px;
+      padding: 19px;
 
       border:
         1px solid
@@ -281,9 +280,9 @@
     }
 
 
-    /* -------------------------
-       ORIGINAL VIDEO
-    ------------------------- */
+    /* =========================
+       LARGE / LONG VIDEO
+       ========================= */
 
     .original-box {
       margin-top: 14px;
@@ -341,11 +340,20 @@
         0
         17px;
 
+      font-family:
+        "Courier Prime",
+        monospace;
+
       font-size: 12px;
 
       line-height: 1.55;
 
       opacity: .72;
+    }
+
+
+    .original-content strong {
+      color: #292821;
     }
 
 
@@ -356,8 +364,7 @@
 
       margin-top: 12px;
 
-      padding:
-        14px;
+      padding: 14px;
 
       border:
         1px solid
@@ -382,14 +389,18 @@
     }
 
 
-    /* -------------------------
-       FILE SUMMARY
-    ------------------------- */
+    /* =========================
+       SUMMARY
+       ========================= */
 
     .summary {
       margin:
         18px
         0;
+
+      font-family:
+        "Courier Prime",
+        monospace;
 
       font-size: 14px;
 
@@ -397,9 +408,9 @@
     }
 
 
-    /* -------------------------
+    /* =========================
        FILE CARDS
-    ------------------------- */
+       ========================= */
 
     .file-card {
       margin:
@@ -441,6 +452,10 @@
       white-space:
         nowrap;
 
+      font-family:
+        "Courier Prime",
+        monospace;
+
       font-size: 14px;
     }
 
@@ -463,6 +478,10 @@
         space-between;
 
       margin-top: 8px;
+
+      font-family:
+        "Courier Prime",
+        monospace;
 
       font-size: 12px;
 
@@ -503,17 +522,16 @@
     }
 
 
-    /* -------------------------
-       SHARE BUTTON
-    ------------------------- */
+    /* =========================
+       SHARE
+       ========================= */
 
     #uploadButton {
       width: 100%;
 
       margin-top: 40px;
 
-      padding:
-        19px;
+      padding: 19px;
 
       border: 0;
 
@@ -546,12 +564,16 @@
     }
 
 
-    /* -------------------------
+    /* =========================
        RESULT
-    ------------------------- */
+       ========================= */
 
     #overall {
       margin-top: 22px;
+
+      font-family:
+        "Courier Prime",
+        monospace;
 
       line-height: 1.55;
     }
@@ -571,8 +593,7 @@
 
       margin-top: 18px;
 
-      padding:
-        15px;
+      padding: 15px;
 
       border:
         1px solid
@@ -598,9 +619,9 @@
     }
 
 
-    /* -------------------------
+    /* =========================
        MOBILE
-    ------------------------- */
+       ========================= */
 
     @media (max-width: 699px) {
 
@@ -617,19 +638,21 @@
 
 
       .language-switcher {
-        margin-bottom: 34px;
+        margin-bottom: 30px;
       }
 
 
       .sun {
-        width: 82px;
+        width: 84px;
 
-        margin-bottom: 17px;
+        margin-bottom: 14px;
       }
 
 
-      h1 {
-        font-size: 58px;
+      .logo-title {
+        width: min(92%, 390px);
+
+        margin-bottom: 14px;
       }
 
 
@@ -692,9 +715,11 @@
   >
 
 
-  <h1>
-    Lola & Santi
-  </h1>
+  <img
+    src="Lola y Santi.png"
+    alt="Lola & Santi"
+    class="logo-title"
+  >
 
 
   <div class="date">
@@ -1051,13 +1076,16 @@ function setLanguage(lang) {
 
   currentLanguage = lang;
 
+
   localStorage.setItem(
     'weddingLanguage',
     lang
   );
 
+
   document.documentElement.lang =
     lang;
+
 
   document
     .querySelectorAll('.lang-button')
@@ -1070,6 +1098,7 @@ function setLanguage(lang) {
 
     });
 
+
   renderLanguage();
 }
 
@@ -1080,23 +1109,30 @@ function renderLanguage() {
   document.getElementById('intro').innerHTML =
     t('intro');
 
+
   document.getElementById('guestName').placeholder =
     t('name');
+
 
   document.getElementById('chooseText').innerText =
     t('choose');
 
+
   document.getElementById('originalTitle').innerText =
     t('originalTitle');
+
 
   document.getElementById('originalExplanation').innerHTML =
     t('originalExplanation');
 
+
   document.getElementById('originalButtonText').innerText =
     t('originalButton');
 
+
   document.getElementById('uploadButton').innerText =
     t('share');
+
 
   if (selectedFiles.length) {
     updateSummary();
@@ -1110,6 +1146,7 @@ function filesSelected(fileList) {
 
   selectedFiles =
     Array.from(fileList);
+
 
   fileStates =
     selectedFiles.map(() => ({
@@ -1128,9 +1165,11 @@ function filesSelected(fileList) {
 
     }));
 
+
   updateSummary();
 
   renderFileList();
+
 
   document.getElementById('overall').innerHTML =
     '';
@@ -1184,6 +1223,7 @@ function renderFileList() {
   const container =
     document.getElementById('fileList');
 
+
   container.innerHTML =
     '';
 
@@ -1193,6 +1233,7 @@ function renderFileList() {
 
       const card =
         document.createElement('div');
+
 
       card.className =
         'file-card';
@@ -1243,6 +1284,7 @@ function renderFileList() {
         </div>
       `;
 
+
       container.appendChild(card);
 
     }
@@ -1269,6 +1311,7 @@ async function startUpload() {
 
   uploading = true;
 
+
   document.getElementById('uploadButton').disabled =
     true;
 
@@ -1294,14 +1337,17 @@ async function startUpload() {
         guestName
       );
 
+
       completed++;
 
     } catch (error) {
 
       console.error(error);
 
+
       fileStates[index].failed =
         true;
+
 
       updateProgress(
         index,
@@ -1326,6 +1372,7 @@ async function startUpload() {
 
 
   uploading = false;
+
 
   document.getElementById('uploadButton').disabled =
     false;
@@ -1364,6 +1411,7 @@ async function startUpload() {
       <br><br>
 
       ${failed}
+
       ${
         failed === 1
           ? t('failedOne')
@@ -1412,6 +1460,7 @@ async function uploadOneFile(
 
   fileStates[index].sessionUrl =
     session.sessionUrl;
+
 
   fileStates[index].fileId =
     session.fileId;
@@ -1591,6 +1640,7 @@ async function uploadOneFile(
             offset =
               received;
 
+
             retries = 0;
 
 
@@ -1688,11 +1738,14 @@ function markComplete(index) {
   fileStates[index].completed =
     true;
 
+
   fileStates[index].failed =
     false;
 
+
   fileStates[index].percent =
     100;
+
 
   fileStates[index].statusKey =
     'uploaded';
@@ -2018,7 +2071,8 @@ function uploadChunk(
                 (
                   currentBytes /
                   totalSize
-                ) * 100
+                ) *
+                100
               )
             );
 
@@ -2123,6 +2177,7 @@ function updateProgress(
   fileStates[index].percent =
     percent;
 
+
   fileStates[index].statusKey =
     statusKey;
 
@@ -2172,6 +2227,7 @@ function updateFinalizing(index) {
 
   fileStates[index].percent =
     99;
+
 
   fileStates[index].statusKey =
     'saving';
@@ -2230,8 +2286,10 @@ function resetUploader() {
   selectedFiles =
     [];
 
+
   fileStates =
     [];
+
 
   uploading =
     false;
@@ -2240,17 +2298,22 @@ function resetUploader() {
   document.getElementById('photoFiles').value =
     '';
 
+
   document.getElementById('originalFiles').value =
     '';
+
 
   document.getElementById('summary').innerText =
     '';
 
+
   document.getElementById('fileList').innerHTML =
     '';
 
+
   document.getElementById('overall').innerHTML =
     '';
+
 
   document.getElementById('uploadButton').disabled =
     false;
