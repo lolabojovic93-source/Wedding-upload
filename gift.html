@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <meta name="robots" content="noindex, nofollow">
+
+  <title>Lola & Santi</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-height: 100%;
+      background: #f4efe5;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+
+      padding: 28px 20px 60px;
+
+      color: #292821;
+
+      background-color: #f4efe5;
+
+      background-image:
+        linear-gradient(
+          rgba(247,244,238,.12),
+          rgba(247,244,238,.12)
+        ),
+        url("paper.png");
+
+      background-repeat:
+        repeat,
+        repeat;
+
+      background-size:
+        auto,
+        780px auto;
+
+      font-family:
+        "Courier Prime",
+        "Courier New",
+        monospace;
+
+      text-align: center;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .sun {
+      display: block;
+      width: 78px;
+      height: auto;
+
+      margin:
+        18px auto
+        16px;
+    }
+
+    .logo-title {
+      display: block;
+
+      width: min(78%, 390px);
+      height: auto;
+
+      margin:
+        0 auto
+        12px;
+    }
+
+    .date {
+      margin-bottom: 46px;
+
+      font-size: 11px;
+      font-weight: 700;
+
+      letter-spacing: 4px;
+    }
+
+    .currency-switcher {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      gap: 38px;
+
+      margin-bottom: 30px;
+    }
+
+    .currency-button {
+      padding:
+        7px
+        2px;
+
+      border: 0;
+
+      border-bottom:
+        1px solid transparent;
+
+      background: transparent;
+
+      color: #292821;
+
+      font-family:
+        "Courier Prime",
+        monospace;
+
+      font-size: 16px;
+      font-weight: 700;
+
+      letter-spacing: 2px;
+
+      cursor: pointer;
+
+      opacity: .35;
+    }
+
+    .currency-button.active {
+      opacity: 1;
+
+      border-bottom-color:
+        #292821;
+    }
+
+    .payment-panel {
+      display: none;
+    }
+
+    .payment-panel.active {
+      display: block;
+    }
+
+    .qr-card {
+      width: 100%;
+
+      padding:
+        28px
+        24px
+        25px;
+
+      border:
+        1px solid rgba(41,40,33,.18);
+
+      background:
+        rgba(255,255,255,.38);
+    }
+
+    .qr-image {
+      display: block;
+
+      width: min(100%, 330px);
+      height: auto;
+
+      margin:
+        0 auto
+        28px;
+    }
+
+    .details {
+      text-align: left;
+
+      border-top:
+        1px solid rgba(41,40,33,.16);
+
+      padding-top: 21px;
+    }
+
+    .detail-row {
+      margin-bottom: 20px;
+    }
+
+    .detail-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .detail-label {
+      margin-bottom: 5px;
+
+      font-size: 10px;
+      font-weight: 700;
+
+      letter-spacing: 1.5px;
+
+      opacity: .48;
+
+      text-transform: uppercase;
+    }
+
+    .detail-value-row {
+      display: flex;
+
+      align-items: center;
+
+      justify-content:
+        space-between;
+
+      gap: 12px;
+    }
+
+    .detail-value {
+      min-width: 0;
+
+      font-size: 14px;
+      line-height: 1.45;
+
+      overflow-wrap: anywhere;
+    }
+
+    .copy-button {
+      flex-shrink: 0;
+
+      padding:
+        5px
+        0
+        4px
+        8px;
+
+      border: 0;
+
+      background: transparent;
+
+      color: #292821;
+
+      cursor: pointer;
+
+      font-family:
+        "Courier Prime",
+        monospace;
+
+      font-size: 10px;
+      font-weight: 700;
+
+      letter-spacing: 1px;
+
+      opacity: .55;
+    }
+
+    .copy-button:hover {
+      opacity: 1;
+    }
+
+    .heart {
+      margin-top: 40px;
+
+      font-size: 25px;
+    }
+
+    .names {
+      margin-top: 8px;
+
+      font-size: 13px;
+      font-weight: 700;
+
+      letter-spacing: 2px;
+    }
+
+    @media (max-width: 699px) {
+
+      body {
+        padding:
+          18px
+          18px
+          48px;
+
+        background-size:
+          auto,
+          620px auto;
+      }
+
+      .sun {
+        width: 70px;
+        margin-top: 12px;
+      }
+
+      .logo-title {
+        width: min(88%, 360px);
+      }
+
+      .date {
+        margin-bottom: 38px;
+      }
+
+      .qr-card {
+        padding:
+          23px
+          18px
+          22px;
+      }
+
+      .qr-image {
+        width: min(100%, 300px);
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+<main class="wrap">
+
+  <img
+    src="Ohrid sun.png"
+    alt=""
+    class="sun"
+  >
+
+  <img
+    src="Lola y Santi transparent.png"
+    alt="Lola & Santi"
+    class="logo-title"
+  >
+
+  <div class="date">
+    12 · 09 · 2026
+  </div>
+
+
+  <div class="currency-switcher">
+
+    <button
+      id="czkButton"
+      class="currency-button active"
+      type="button"
+      onclick="showCurrency('czk')">
+      CZK
+    </button>
+
+    <button
+      id="eurButton"
+      class="currency-button"
+      type="button"
+      onclick="showCurrency('eur')">
+      EUR
+    </button>
+
+  </div>
+
+
+  <section
+    id="czkPanel"
+    class="payment-panel active">
+
+    <div class="qr-card">
+
+      <img
+        src="qr-czk.png"
+        alt="CZK QR payment"
+        class="qr-image"
+      >
+
+      <div class="details">
+
+        <div class="detail-row">
+
+          <div class="detail-label">
+            Account
+          </div>
+
+          <div class="detail-value-row">
+
+            <div
+              id="czkAccount"
+              class="detail-value">
+              1432700064/3030
+            </div>
+
+            <button
+              class="copy-button"
+              onclick="copyText('1432700064/3030', this)">
+              COPY
+            </button>
+
+          </div>
+
+        </div>
+
+        <div class="detail-row">
+
+          <div class="detail-label">
+            Account holder
+          </div>
+
+          <div class="detail-value">
+            Lola Bojović
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section
+    id="eurPanel"
+    class="payment-panel">
+
+    <div class="qr-card">
+
+      <img
+        src="qr-eur.png"
+        alt="EUR QR payment"
+        class="qr-image"
+      >
+
+      <div class="details">
+
+        <div class="detail-row">
+
+          <div class="detail-label">
+            IBAN
+          </div>
+
+          <div class="detail-value-row">
+
+            <div
+              id="eurIban"
+              class="detail-value">
+              CZ33 3030 0000 0014 3270 0072
+            </div>
+
+            <button
+              class="copy-button"
+              onclick="copyText('CZ3330300000001432700072', this)">
+              COPY
+            </button>
+
+          </div>
+
+        </div>
+
+        <div class="detail-row">
+
+          <div class="detail-label">
+            BIC / SWIFT
+          </div>
+
+          <div class="detail-value-row">
+
+            <div class="detail-value">
+              AIRACZPP
+            </div>
+
+            <button
+              class="copy-button"
+              onclick="copyText('AIRACZPP', this)">
+              COPY
+            </button>
+
+          </div>
+
+        </div>
+
+        <div class="detail-row">
+
+          <div class="detail-label">
+            Account holder
+          </div>
+
+          <div class="detail-value">
+            Lola Bojović
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <div class="heart">
+    ♡
+  </div>
+
+  <div class="names">
+    LOLA & SANTI
+  </div>
+
+</main>
+
+
+<script>
+
+function showCurrency(currency) {
+
+  const isCzk =
+    currency === 'czk';
+
+  document
+    .getElementById('czkPanel')
+    .classList
+    .toggle('active', isCzk);
+
+  document
+    .getElementById('eurPanel')
+    .classList
+    .toggle('active', !isCzk);
+
+  document
+    .getElementById('czkButton')
+    .classList
+    .toggle('active', isCzk);
+
+  document
+    .getElementById('eurButton')
+    .classList
+    .toggle('active', !isCzk);
+}
+
+
+async function copyText(text, button) {
+
+  try {
+
+    await navigator.clipboard.writeText(text);
+
+    const original =
+      button.innerText;
+
+    button.innerText =
+      'COPIED';
+
+    setTimeout(
+      function() {
+        button.innerText =
+          original;
+      },
+      1400
+    );
+
+  } catch (error) {
+
+    console.error(
+      'Could not copy:',
+      error
+    );
+
+  }
+
+}
+
+</script>
+
+</body>
+</html>
